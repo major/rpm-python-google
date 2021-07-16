@@ -40,6 +40,7 @@ Summary:        %{summary}
 
 %package -n python3-%{srcname}-doc
 Requires:       python3-docs
+BuildRequires:  python3-docs
 BuildRequires:  python3dist(sphinx)
 BuildRequires:  python3dist(sphinx-rtd-theme)
 Summary:        Documentation for python-%{srcname}

@@ -40,6 +40,8 @@ Summary:        %{summary}
 
 
 %package -n python3-%{srcname}-doc
+Requires:       python3-docs
+BuildRequires:  python3-docs
 BuildRequires:  python3dist(recommonmark)
 BuildRequires:  python3dist(sphinx)
 Summary:        Documentation for python-%{srcname}
@@ -51,6 +53,11 @@ Documentation for python-%{srcname}
 %prep
 %forgesetup
 %patch0 -p0
+
+# Use local inventory in intersphinx mapping.
+sed -r -i -e \
+    's|https://docs.python.org/3|/%{_docdir}/python3-docs/html|' \
+    docs/conf.py
 
 
 %generate_buildrequires

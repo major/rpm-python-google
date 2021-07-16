@@ -42,6 +42,7 @@ Summary:        %{summary}
 
 %package -n python3-%{srcname}-doc
 Requires:       python3-docs
+BuildRequires:  python3-docs
 BuildRequires:  python3dist(recommonmark)
 BuildRequires:  python3dist(sphinx)
 Summary:        Documentation for python-%{srcname}
