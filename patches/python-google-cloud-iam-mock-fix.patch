@@ -1,0 +1,12 @@
+diff -up ./tests/unit/gapic/credentials_v1/test_iam_credentials.py.orig ./tests/unit/gapic/credentials_v1/test_iam_credentials.py
+--- ./tests/unit/gapic/credentials_v1/test_iam_credentials.py.orig	2021-07-15 11:13:53.964747512 -0500
++++ ./tests/unit/gapic/credentials_v1/test_iam_credentials.py	2021-07-15 11:14:04.380688605 -0500
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc

@@ -1,0 +1,179 @@
+diff -up ./tests_async/system/requests/test_upload.py.orig ./tests_async/system/requests/test_upload.py
+--- ./tests_async/system/requests/test_upload.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests_async/system/requests/test_upload.py	2021-07-16 10:34:21.105833467 -0500
+@@ -17,7 +17,7 @@ import hashlib
+ import io
+ import os
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+ from six.moves import urllib_parse
+diff -up ./tests_async/unit/requests/test_download.py.orig ./tests_async/unit/requests/test_download.py
+--- ./tests_async/unit/requests/test_download.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests_async/unit/requests/test_download.py	2021-07-16 10:34:21.105833467 -0500
+@@ -15,7 +15,7 @@
+ import io
+
+ import aiohttp
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests_async/unit/requests/test__helpers.py.orig ./tests_async/unit/requests/test__helpers.py
+--- ./tests_async/unit/requests/test__helpers.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests_async/unit/requests/test__helpers.py	2021-07-16 10:34:21.105833467 -0500
+@@ -14,7 +14,7 @@
+
+ import aiohttp
+ import io
+-import mock
++from unittest import mock
+ from six.moves import http_client
+ import pytest
+
+diff -up ./tests_async/unit/requests/test_upload.py.orig ./tests_async/unit/requests/test_upload.py
+--- ./tests_async/unit/requests/test_upload.py.orig	2021-07-16 10:34:05.515934513 -0500
++++ ./tests_async/unit/requests/test_upload.py	2021-07-16 10:34:21.105833467 -0500
+@@ -17,7 +17,7 @@ import io
+ import json
+ import pytest
+
+-import mock
++from unittest import mock
+
+ from google import _async_resumable_media
+ import google._async_resumable_media.requests.upload as upload_mod
+diff -up ./tests_async/unit/test__download.py.orig ./tests_async/unit/test__download.py
+--- ./tests_async/unit/test__download.py.orig	2021-07-16 10:34:05.515934513 -0500
++++ ./tests_async/unit/test__download.py	2021-07-16 10:34:21.104833474 -0500
+@@ -14,7 +14,7 @@
+
+ import io
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests_async/unit/test__helpers.py.orig ./tests_async/unit/test__helpers.py
+--- ./tests_async/unit/test__helpers.py.orig	2021-07-16 10:34:05.515934513 -0500
++++ ./tests_async/unit/test__helpers.py	2021-07-16 10:34:21.104833474 -0500
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests_async/unit/test__upload.py.orig ./tests_async/unit/test__upload.py
+--- ./tests_async/unit/test__upload.py.orig	2021-07-16 10:34:05.515934513 -0500
++++ ./tests_async/unit/test__upload.py	2021-07-16 10:34:21.104833474 -0500
+@@ -15,7 +15,7 @@
+ import io
+ import sys
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests/system/requests/test_upload.py.orig ./tests/system/requests/test_upload.py
+--- ./tests/system/requests/test_upload.py.orig	2021-07-16 10:34:05.513934526 -0500
++++ ./tests/system/requests/test_upload.py	2021-07-16 10:34:21.104833474 -0500
+@@ -18,7 +18,7 @@ import io
+ import os
+
+ import pytest
+-import mock
++from unittest import mock
+ from six.moves import http_client
+ from six.moves import urllib_parse
+
+diff -up ./tests/unit/requests/test_download.py.orig ./tests/unit/requests/test_download.py
+--- ./tests/unit/requests/test_download.py.orig	2021-07-16 10:34:05.513934526 -0500
++++ ./tests/unit/requests/test_download.py	2021-07-16 10:34:21.103833480 -0500
+@@ -14,7 +14,7 @@
+
+ import io
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests/unit/requests/test__helpers.py.orig ./tests/unit/requests/test__helpers.py
+--- ./tests/unit/requests/test__helpers.py.orig	2021-07-16 10:34:05.513934526 -0500
++++ ./tests/unit/requests/test__helpers.py	2021-07-16 10:34:21.104833474 -0500
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+
+-import mock
++from unittest import mock
+ from six.moves import http_client
+
+ from google.resumable_media.requests import _request_helpers
+diff -up ./tests/unit/requests/test_upload.py.orig ./tests/unit/requests/test_upload.py
+--- ./tests/unit/requests/test_upload.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests/unit/requests/test_upload.py	2021-07-16 10:34:21.103833480 -0500
+@@ -15,7 +15,7 @@
+ import io
+ import json
+
+-import mock
++from unittest import mock
+ from six.moves import http_client
+
+ from google import resumable_media
+diff -up ./tests/unit/test_common.py.orig ./tests/unit/test_common.py
+--- ./tests/unit/test_common.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests/unit/test_common.py	2021-07-16 10:34:21.102833487 -0500
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+
+-import mock
++from unittest import mock
+ import pytest
+
+ from google.resumable_media import common
+diff -up ./tests/unit/test__download.py.orig ./tests/unit/test__download.py
+--- ./tests/unit/test__download.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests/unit/test__download.py	2021-07-16 10:34:21.103833480 -0500
+@@ -14,7 +14,7 @@
+
+ import io
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client
+
+diff -up ./tests/unit/test__helpers.py.orig ./tests/unit/test__helpers.py
+--- ./tests/unit/test__helpers.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests/unit/test__helpers.py	2021-07-16 10:34:21.103833480 -0500
+@@ -15,7 +15,7 @@
+ from __future__ import absolute_import
+
+ import hashlib
+-import mock
++from unittest import mock
+ import pytest
+ import requests.exceptions
+ from six.moves import http_client
+diff -up ./tests/unit/test__upload.py.orig ./tests/unit/test__upload.py
+--- ./tests/unit/test__upload.py.orig	2021-07-16 10:34:05.514934520 -0500
++++ ./tests/unit/test__upload.py	2021-07-16 10:34:21.103833480 -0500
+@@ -15,7 +15,7 @@
+ import io
+ import sys
+
+-import mock
++from unittest import mock
+ import pytest
+ from six.moves import http_client

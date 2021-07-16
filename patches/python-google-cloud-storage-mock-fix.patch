@@ -1,0 +1,180 @@
+diff -up ./tests/system/test_blob.py.orig ./tests/system/test_blob.py
+--- ./tests/system/test_blob.py.orig	2021-07-16 11:16:32.896528155 -0500
++++ ./tests/system/test_blob.py	2021-07-16 11:16:41.086475618 -0500
+@@ -21,7 +21,7 @@ import warnings
+ 
+ import pytest
+ import six
+-import mock
++from unittest import mock
+ 
+ from google import resumable_media
+ from google.api_core import exceptions
+diff -up ./tests/unit/test_acl.py.orig ./tests/unit/test_acl.py
+--- ./tests/unit/test_acl.py.orig	2021-07-16 11:16:32.897528148 -0500
++++ ./tests/unit/test_acl.py	2021-07-16 11:16:41.085475625 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+ 
+diff -up ./tests/unit/test_batch.py.orig ./tests/unit/test_batch.py
+--- ./tests/unit/test_batch.py.orig	2021-07-16 11:16:32.897528148 -0500
++++ ./tests/unit/test_batch.py	2021-07-16 11:16:41.084475631 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import requests
+ from six.moves import http_client
+ 
+diff -up ./tests/unit/test_blob.py.orig ./tests/unit/test_blob.py
+--- ./tests/unit/test_blob.py.orig	2021-07-16 11:16:32.898528142 -0500
++++ ./tests/unit/test_blob.py	2021-07-16 11:16:41.084475631 -0500
+@@ -21,7 +21,7 @@ import os
+ import tempfile
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ import six
+ from six.moves import http_client
+diff -up ./tests/unit/test_bucket.py.orig ./tests/unit/test_bucket.py
+--- ./tests/unit/test_bucket.py.orig	2021-07-16 11:16:32.899528135 -0500
++++ ./tests/unit/test_bucket.py	2021-07-16 11:16:41.083475638 -0500
+@@ -15,7 +15,7 @@
+ import datetime
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+diff -up ./tests/unit/test_client.py.orig ./tests/unit/test_client.py
+--- ./tests/unit/test_client.py.orig	2021-07-16 11:16:32.899528135 -0500
++++ ./tests/unit/test_client.py	2021-07-16 11:17:03.956328912 -0500
+@@ -15,7 +15,7 @@
+ import base64
+ import io
+ import json
+-import mock
++from unittest import mock
+ import pytest
+ import re
+ import requests
+@@ -27,7 +27,7 @@ from six.moves.urllib import parse as ur
+ from google.api_core import exceptions
+ 
+ from google.oauth2.service_account import Credentials
+-from . import _read_local_json
++from tests.unit import _read_local_json
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+ from google.cloud.storage.retry import DEFAULT_RETRY_IF_GENERATION_SPECIFIED
+diff -up ./tests/unit/test_fileio.py.orig ./tests/unit/test_fileio.py
+--- ./tests/unit/test_fileio.py.orig	2021-07-16 11:16:32.899528135 -0500
++++ ./tests/unit/test_fileio.py	2021-07-16 11:16:41.081475650 -0500
+@@ -18,7 +18,7 @@ import unittest
+ import io
+ import string
+ 
+-import mock
++from unittest import mock
+ 
+ from google.api_core.exceptions import RequestRangeNotSatisfiable
+ from google.cloud.storage.retry import DEFAULT_RETRY
+diff -up ./tests/unit/test__helpers.py.orig ./tests/unit/test__helpers.py
+--- ./tests/unit/test__helpers.py.orig	2021-07-16 11:16:32.896528155 -0500
++++ ./tests/unit/test__helpers.py	2021-07-16 11:16:41.086475618 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+ from google.cloud.storage.retry import DEFAULT_RETRY_IF_METAGENERATION_SPECIFIED
+@@ -523,7 +523,7 @@ class Test__base64_md5hash(unittest.Test
+         self.assertEqual(SIGNED_CONTENT, b"kBiQqOnIz21aGlQrIp/r/w==")
+ 
+     def test_it_with_stubs(self):
+-        import mock
++        from unittest import mock
+ 
+         class _Buffer(object):
+             def __init__(self, return_vals):
+diff -up ./tests/unit/test_hmac_key.py.orig ./tests/unit/test_hmac_key.py
+--- ./tests/unit/test_hmac_key.py.orig	2021-07-16 11:16:32.900528129 -0500
++++ ./tests/unit/test_hmac_key.py	2021-07-16 11:16:41.081475650 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+ from google.cloud.storage.retry import DEFAULT_RETRY_IF_ETAG_IN_JSON
+diff -up ./tests/unit/test__http.py.orig ./tests/unit/test__http.py
+--- ./tests/unit/test__http.py.orig	2021-07-16 11:16:32.896528155 -0500
++++ ./tests/unit/test__http.py	2021-07-16 11:16:41.085475625 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestConnection(unittest.TestCase):
+diff -up ./tests/unit/test_notification.py.orig ./tests/unit/test_notification.py
+--- ./tests/unit/test_notification.py.orig	2021-07-16 11:16:32.900528129 -0500
++++ ./tests/unit/test_notification.py	2021-07-16 11:16:41.080475657 -0500
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.storage.retry import DEFAULT_RETRY
+ 
+diff -up ./tests/unit/test_retry.py.orig ./tests/unit/test_retry.py
+--- ./tests/unit/test_retry.py.orig	2021-07-16 11:16:32.900528129 -0500
++++ ./tests/unit/test_retry.py	2021-07-16 11:16:41.080475657 -0500
+@@ -16,7 +16,7 @@ import unittest
+ 
+ from google.cloud.storage import _helpers
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ try:
+diff -up ./tests/unit/test__signing.py.orig ./tests/unit/test__signing.py
+--- ./tests/unit/test__signing.py.orig	2021-07-16 11:16:32.897528148 -0500
++++ ./tests/unit/test__signing.py	2021-07-16 11:16:52.817400367 -0500
+@@ -22,12 +22,12 @@ import json
+ import time
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ import six
+ from six.moves import urllib_parse
+ 
+-from . import _read_local_json
++from tests.unit import _read_local_json
+ 
+ 
+ _SERVICE_ACCOUNT_JSON = _read_local_json("url_signer_v4_test_account.json")
