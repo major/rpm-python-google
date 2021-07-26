@@ -24,8 +24,8 @@ BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
-BuildRequires:  python3-pytest
-BuildRequires:  python3-pytest-asyncio
+BuildRequires:  python3dist(pytest)
+BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:

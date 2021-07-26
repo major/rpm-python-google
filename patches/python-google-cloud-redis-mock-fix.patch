@@ -1,0 +1,24 @@
+diff -up ./tests/unit/gapic/redis_v1beta1/test_cloud_redis.py.orig ./tests/unit/gapic/redis_v1beta1/test_cloud_redis.py
+--- ./tests/unit/gapic/redis_v1beta1/test_cloud_redis.py.orig	2021-07-12 15:30:28.000000000 -0500
++++ ./tests/unit/gapic/redis_v1beta1/test_cloud_redis.py	2021-07-21 16:04:40.966160858 -0500
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff -up ./tests/unit/gapic/redis_v1/test_cloud_redis.py.orig ./tests/unit/gapic/redis_v1/test_cloud_redis.py
+--- ./tests/unit/gapic/redis_v1/test_cloud_redis.py.orig	2021-07-12 15:30:28.000000000 -0500
++++ ./tests/unit/gapic/redis_v1/test_cloud_redis.py	2021-07-21 16:04:40.965160862 -0500
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc

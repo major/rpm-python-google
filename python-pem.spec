@@ -1,23 +1,22 @@
 # tests are enabled by default
 %bcond_without tests
 
-%global         srcname     google-cloud-core
-%global         forgeurl    https://github.com/googleapis/python-cloud-core
-Version:        1.7.1
-%global         tag         v%{version}
+%global         srcname     pem
+%global         forgeurl    https://github.com/hynek/pem
+Version:        21.2.0
+%global         tag         %{version}
 %forgemeta
 
 Name:           python-%{srcname}
 Release:        1%{?dist}
-Summary:        Core Helpers for Google Cloud Python Client Library
+Summary:        Easy PEM file parsing
 
 License:        ASL 2.0
 URL:            %forgeurl
 Source0:        %forgesource
-# Fix mock > unittest.mock. Made PRs to upstream and they are aware but not
-# accepting patches for this right now.
-# Example: https://github.com/googleapis/python-api-core/pull/208
-Patch0:         python-google-cloud-core-mock-fix.patch
+# Docs use the 'furo' theme, but that isn't packaged for Fedora yet. Switch to
+# the already packaged sphinx-rtd-theme instead.
+Patch0:         python-pem-doc-theme-fix.patch
 
 BuildArch:      noarch
 
@@ -25,12 +24,16 @@ BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
+BuildRequires:  python3dist(certifi)
+BuildRequires:  python3dist(cryptography)
+BuildRequires:  python3dist(pretend)
 BuildRequires:  python3dist(pytest)
 %endif
 
+
 %global _description %{expand:
-This library is not meant to stand-alone. Instead it defines common helpers
-(e.g. base Client classes) used by all of the google-cloud-* packages.}
+pem is an MIT-licensed Python module for parsing and splitting of PEM files,
+i.e. Base64-encoded DER keys and certificates.}
 
 %description %{_description}
 
@@ -40,19 +43,17 @@ Summary:        %{summary}
 
 %description -n python3-%{srcname} %{_description}
 
-
 %package -n python3-%{srcname}-doc
 Requires:       python3-docs
 BuildRequires:  python3-docs
-BuildRequires:  python3dist(recommonmark)
+BuildRequires:  python3-pyOpenSSL
 BuildRequires:  python3dist(sphinx)
+BuildRequires:  python3dist(sphinx-rtd-theme)
+BuildRequires:  python3dist(twisted)
 Summary:        Documentation for python-%{srcname}
 
 %description -n python3-%{srcname}-doc
 Documentation for python-%{srcname}
-
-# Build the grpc extras subpackage.
-%pyproject_extras_subpkg -n python3-%{srcname} grpc
 
 
 %prep
@@ -72,26 +73,25 @@ sed -r -i -e \
 %build
 %pyproject_wheel
 
-# Generate documentation.
-PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
-rm -rf html/.{doctrees,buildinfo}
-
 
 %install
 %pyproject_install
-%pyproject_save_files google
+%pyproject_save_files pem
+
+# Generate documentation.
+PYTHONPATH="%{buildroot}%{python3_sitelib}:${PWD}/docs/" sphinx-build docs html
+rm -rf html/.{doctrees,buildinfo}
 
 
 %if %{with tests}
 %check
-%pytest --import-mode importlib tests
+%pytest
 %endif
 
 
 %files -n python3-%{srcname} -f %{pyproject_files}
 %license LICENSE
-%doc README.rst CHANGELOG.md
-%{python3_sitelib}/google_cloud_core-%{version}-py%{python3_version}-nspkg.pth
+%doc README.rst CHANGELOG.rst
 
 
 %files -n python3-%{srcname}-doc
@@ -100,5 +100,5 @@ rm -rf html/.{doctrees,buildinfo}
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 1.7.1-1
+* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 1.0.0-1
 - First package.

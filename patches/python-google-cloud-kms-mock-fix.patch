@@ -1,0 +1,12 @@
+diff -up ./tests/unit/gapic/kms_v1/test_key_management_service.py.orig ./tests/unit/gapic/kms_v1/test_key_management_service.py
+--- ./tests/unit/gapic/kms_v1/test_key_management_service.py.orig	2021-07-12 15:19:33.000000000 -0500
++++ ./tests/unit/gapic/kms_v1/test_key_management_service.py	2021-07-21 14:54:32.173485923 -0500
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
