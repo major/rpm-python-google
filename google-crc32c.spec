@@ -1,3 +1,9 @@
+# NOTE(mhayden): Tests are disabled because the upstream repository doesn't
+#include the 'googletest' component and even if 'googletest' is packaged
+#separately, lots of patching for the cmake configuration is required to make it
+#work.
+%bcond_with tests
+
 %global         srcname     google-crc32c
 %global         reponame    crc32c
 %global         forgeurl    https://github.com/google/%{reponame}
@@ -24,12 +30,12 @@ Herrmann. CRC32C is used in software such as Btrfs, ext4, Ceph and leveldb.
 
 
 %package devel
-Summary:        Development files for google-crc32c
+Summary:        Development files for %{srcname}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 The %{name}-devel package contains libraries and header files for
-developing applications that use google-crc32c.
+developing applications that use %{srcname}.
 
 
 %prep
@@ -50,6 +56,12 @@ developing applications that use google-crc32c.
 
 %install
 %cmake_install
+
+
+%if %{with tests}
+%check
+%ctest
+%endif
 
 
 %files
