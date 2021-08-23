@@ -1,11 +1,9 @@
-# NOTE(mhayden): Needs python-grpcio >= 1.38.1, but rawhide doesn't have that.
-
 # tests are enabled by default
 %bcond_without tests
 
 %global         srcname     google-cloud-bigquery
 %global         forgeurl    https://github.com/googleapis/python-bigquery
-Version:        2.22.0
+Version:        2.24.1
 %global         tag         v%{version}
 %forgemeta
 
@@ -16,9 +14,7 @@ Summary:        Python Client for Google Cloud Storage
 License:        ASL 2.0
 URL:            %forgeurl
 Source0:        %forgesource
-# Fix mock > unittest.mock. Made PRs to upstream and they are aware but not
-# accepting patches for this right now.
-# Patch0:         python-google-cloud-storage-mock-fix.patch
+Patch0:         python-google-cloud-bigquery-python-version.patch
 
 BuildArch:      noarch
 
@@ -57,12 +53,7 @@ Documentation for python-%{srcname}
 
 %prep
 %forgesetup
-# %patch0 -p0
-
-# Use local inventory in intersphinx mapping.
-sed -r -i -e \
-    's|https://docs.python.org/3|/%{_docdir}/python3-docs/html|' \
-    docs/conf.py
+%patch0 -p1
 
 
 %generate_buildrequires
@@ -83,10 +74,7 @@ PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
 
 %if %{with tests}
 %check
-mkdir temp_tests
-cp -r tests temp_tests/
-PYTHONPATH=%{buildroot}%{python3_sitelib}:$(pwd)/temp_tests \
-    %pytest --import-mode importlib tests/unit
+%pytest --import-mode importlib tests/unit
 %endif
 
 
@@ -102,5 +90,5 @@ PYTHONPATH=%{buildroot}%{python3_sitelib}:$(pwd)/temp_tests \
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.21.0-1
+* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.24.1-1
 - First package.

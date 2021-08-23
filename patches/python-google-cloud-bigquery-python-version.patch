@@ -1,0 +1,26 @@
+From efad82fc8447c2a477835aa13495f1cec31fadf9 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 23 Aug 2021 15:48:49 -0500
+Subject: [PATCH] Adjust Python max version requirement
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index a1b3b61..1eec6b5 100644
+--- a/setup.py
++++ b/setup.py
+@@ -132,7 +132,7 @@ setuptools.setup(
+     namespace_packages=namespaces,
+     install_requires=dependencies,
+     extras_require=extras,
+-    python_requires=">=3.6, <3.10",
++    python_requires=">=3.6",
+     include_package_data=True,
+     zip_safe=False,
+ )
+-- 
+2.31.1
+

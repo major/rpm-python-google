@@ -3,7 +3,7 @@
 
 %global         srcname     google-cloud-kms
 %global         forgeurl    https://github.com/googleapis/python-kms
-Version:        2.4.0
+Version:        2.5.0
 %global         tag         v%{version}
 %forgemeta
 
@@ -104,5 +104,5 @@ rm -f %{buildroot}/%{_bindir}/fixup_kms_v1_keywords.py
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.4.0-1
+* Mon Aug 23 2021 Major Hayden <major@mhtx.net> - 2.5.0-1
 - First package.

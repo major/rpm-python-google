@@ -28,6 +28,7 @@ BuildRequires:  python3dist(certifi)
 BuildRequires:  python3dist(cryptography)
 BuildRequires:  python3dist(pretend)
 BuildRequires:  python3dist(pytest)
+BuildRequires:  python3dist(service-identity)
 %endif
 
 
@@ -96,7 +97,7 @@ rm -rf html/.{doctrees,buildinfo}
 
 %files -n python3-%{srcname}-doc
 %license LICENSE
-%doc html
+%doc README.rst CHANGELOG.rst html
 
 
 %changelog

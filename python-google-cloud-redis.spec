@@ -3,7 +3,7 @@
 
 %global         srcname     google-cloud-redis
 %global         forgeurl    https://github.com/googleapis/python-redis
-Version:        2.2.0
+Version:        2.2.2
 %global         tag         v%{version}
 %forgemeta
 
@@ -72,7 +72,7 @@ sed -r -i -e \
 
 # Generate documentation.
 PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
-rm -rf html/.{doctrees,buildinfo}
+rm -rf html/.{doctrees,buildinfo} html/objects.inv
 
 
 %install
@@ -102,5 +102,5 @@ rm -f %{buildroot}/%{_bindir}/fixup_redis_v1beta1_keywords.py
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.2.0-1
+* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.2.2-1
 - First package.
