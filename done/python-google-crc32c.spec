@@ -25,6 +25,7 @@ BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
 BuildRequires:  python3dist(pytest)
+BuildRequires:  python3dist(pytest-aiohttp)
 BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
