@@ -1,0 +1,273 @@
+From 14691ce0ae3d164143726b2a22b3ba2432999fef Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 4 Oct 2021 08:07:15 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/_helpers.py                                               | 2 +-
+ .../unit/gapic/spanner_admin_database_v1/test_database_admin.py | 2 +-
+ .../unit/gapic/spanner_admin_instance_v1/test_instance_admin.py | 2 +-
+ tests/unit/gapic/spanner_v1/test_spanner.py                     | 2 +-
+ tests/unit/spanner_dbapi/test__helpers.py                       | 2 +-
+ tests/unit/spanner_dbapi/test_connection.py                     | 2 +-
+ tests/unit/spanner_dbapi/test_cursor.py                         | 2 +-
+ tests/unit/spanner_dbapi/test_parser.py                         | 2 +-
+ tests/unit/test__opentelemetry_tracing.py                       | 2 +-
+ tests/unit/test_backup.py                                       | 2 +-
+ tests/unit/test_client.py                                       | 2 +-
+ tests/unit/test_database.py                                     | 2 +-
+ tests/unit/test_instance.py                                     | 2 +-
+ tests/unit/test_pool.py                                         | 2 +-
+ tests/unit/test_session.py                                      | 2 +-
+ tests/unit/test_snapshot.py                                     | 2 +-
+ tests/unit/test_streamed.py                                     | 2 +-
+ tests/unit/test_table.py                                        | 2 +-
+ tests/unit/test_transaction.py                                  | 2 +-
+ 19 files changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/tests/_helpers.py b/tests/_helpers.py
+index 42178fd..ec27cbb 100644
+--- a/tests/_helpers.py
++++ b/tests/_helpers.py
+@@ -1,5 +1,5 @@
+ import unittest
+-import mock
++from unittest import mock
+ 
+ try:
+     from opentelemetry import trace
+diff --git a/tests/unit/gapic/spanner_admin_database_v1/test_database_admin.py b/tests/unit/gapic/spanner_admin_database_v1/test_database_admin.py
+index 1ca4058..dd4337a 100644
+--- a/tests/unit/gapic/spanner_admin_database_v1/test_database_admin.py
++++ b/tests/unit/gapic/spanner_admin_database_v1/test_database_admin.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/spanner_admin_instance_v1/test_instance_admin.py b/tests/unit/gapic/spanner_admin_instance_v1/test_instance_admin.py
+index 567d56d..6d75226 100644
+--- a/tests/unit/gapic/spanner_admin_instance_v1/test_instance_admin.py
++++ b/tests/unit/gapic/spanner_admin_instance_v1/test_instance_admin.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/spanner_v1/test_spanner.py b/tests/unit/gapic/spanner_v1/test_spanner.py
+index 86557f3..cd14d08 100644
+--- a/tests/unit/gapic/spanner_v1/test_spanner.py
++++ b/tests/unit/gapic/spanner_v1/test_spanner.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/spanner_dbapi/test__helpers.py b/tests/unit/spanner_dbapi/test__helpers.py
+index 84d6b3e..1d23dae 100644
+--- a/tests/unit/spanner_dbapi/test__helpers.py
++++ b/tests/unit/spanner_dbapi/test__helpers.py
+@@ -14,7 +14,7 @@
+ 
+ """Cloud Spanner DB-API Connection class unit tests."""
+ 
+-import mock
++from unittest import mock
+ import unittest
+ 
+ 
+diff --git a/tests/unit/spanner_dbapi/test_connection.py b/tests/unit/spanner_dbapi/test_connection.py
+index abdd335..a453a49 100644
+--- a/tests/unit/spanner_dbapi/test_connection.py
++++ b/tests/unit/spanner_dbapi/test_connection.py
+@@ -14,7 +14,7 @@
+ 
+ """Cloud Spanner DB-API Connection class unit tests."""
+ 
+-import mock
++from unittest import mock
+ import unittest
+ import warnings
+ 
+diff --git a/tests/unit/spanner_dbapi/test_cursor.py b/tests/unit/spanner_dbapi/test_cursor.py
+index 038f419..9a9bc53 100644
+--- a/tests/unit/spanner_dbapi/test_cursor.py
++++ b/tests/unit/spanner_dbapi/test_cursor.py
+@@ -14,7 +14,7 @@
+ 
+ """Cursor() class unit tests."""
+ 
+-import mock
++from unittest import mock
+ import sys
+ import unittest
+ 
+diff --git a/tests/unit/spanner_dbapi/test_parser.py b/tests/unit/spanner_dbapi/test_parser.py
+index 2343800..526eeac 100644
+--- a/tests/unit/spanner_dbapi/test_parser.py
++++ b/tests/unit/spanner_dbapi/test_parser.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import sys
+ import unittest
+ 
+diff --git a/tests/unit/test__opentelemetry_tracing.py b/tests/unit/test__opentelemetry_tracing.py
+index 2587022..1d2dda3 100644
+--- a/tests/unit/test__opentelemetry_tracing.py
++++ b/tests/unit/test__opentelemetry_tracing.py
+@@ -1,5 +1,5 @@
+ import importlib
+-import mock
++from unittest import mock
+ import unittest
+ import sys
+ 
+diff --git a/tests/unit/test_backup.py b/tests/unit/test_backup.py
+index 035a2c9..fa91033 100644
+--- a/tests/unit/test_backup.py
++++ b/tests/unit/test_backup.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class _BaseTest(unittest.TestCase):
+diff --git a/tests/unit/test_client.py b/tests/unit/test_client.py
+index 68d8ea6..e778136 100644
+--- a/tests/unit/test_client.py
++++ b/tests/unit/test_client.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ def _make_credentials():
+diff --git a/tests/unit/test_database.py b/tests/unit/test_database.py
+index df5554d..5f79ce9 100644
+--- a/tests/unit/test_database.py
++++ b/tests/unit/test_database.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ from google.api_core import gapic_v1
+ 
+ from google.cloud.spanner_v1.param_types import INT64
+diff --git a/tests/unit/test_instance.py b/tests/unit/test_instance.py
+index c715fb2..392707a 100644
+--- a/tests/unit/test_instance.py
++++ b/tests/unit/test_instance.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestInstance(unittest.TestCase):
+diff --git a/tests/unit/test_pool.py b/tests/unit/test_pool.py
+index f4f5675..a748c1d 100644
+--- a/tests/unit/test_pool.py
++++ b/tests/unit/test_pool.py
+@@ -16,7 +16,7 @@
+ from functools import total_ordering
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ def _make_database(name="name"):
+diff --git a/tests/unit/test_session.py b/tests/unit/test_session.py
+index fe78567..a062082 100644
+--- a/tests/unit/test_session.py
++++ b/tests/unit/test_session.py
+@@ -15,7 +15,7 @@
+ 
+ import google.api_core.gapic_v1.method
+ from google.cloud.spanner_v1 import RequestOptions
+-import mock
++from unittest import mock
+ from tests._helpers import (
+     OpenTelemetryBase,
+     StatusCode,
+diff --git a/tests/unit/test_snapshot.py b/tests/unit/test_snapshot.py
+index ef162fd..e3364de 100644
+--- a/tests/unit/test_snapshot.py
++++ b/tests/unit/test_snapshot.py
+@@ -14,7 +14,7 @@
+ 
+ 
+ from google.api_core import gapic_v1
+-import mock
++from unittest import mock
+ 
+ from google.cloud.spanner_v1 import RequestOptions
+ from tests._helpers import (
+diff --git a/tests/unit/test_streamed.py b/tests/unit/test_streamed.py
+index de0c887..f2b5adf 100644
+--- a/tests/unit/test_streamed.py
++++ b/tests/unit/test_streamed.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestStreamedResultSet(unittest.TestCase):
+diff --git a/tests/unit/test_table.py b/tests/unit/test_table.py
+index 0a49a9b..245fa06 100644
+--- a/tests/unit/test_table.py
++++ b/tests/unit/test_table.py
+@@ -15,7 +15,7 @@
+ import unittest
+ 
+ from google.cloud.exceptions import NotFound
+-import mock
++from unittest import mock
+ 
+ from google.cloud.spanner_v1.types import (
+     StructType,
+diff --git a/tests/unit/test_transaction.py b/tests/unit/test_transaction.py
+index d11a349..0212294 100644
+--- a/tests/unit/test_transaction.py
++++ b/tests/unit/test_transaction.py
+@@ -13,7 +13,7 @@
+ # limitations under the License.
+ 
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.spanner_v1 import RequestOptions
+ from google.cloud.spanner_v1 import Type
+-- 
+2.31.1
+
