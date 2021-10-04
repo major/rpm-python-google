@@ -1,0 +1,222 @@
+From 3ab1fcd22e72080ade17690176e45550299cc9da Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Fri, 27 Aug 2021 15:09:40 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/_testing.py                                          | 2 +-
+ .../gapic/bigtable_admin_v2/test_bigtable_instance_admin.py     | 2 +-
+ tests/unit/gapic/bigtable_admin_v2/test_bigtable_table_admin.py | 2 +-
+ tests/unit/gapic/bigtable_v2/test_bigtable.py                   | 2 +-
+ tests/unit/test_app_profile.py                                  | 2 +-
+ tests/unit/test_backup.py                                       | 2 +-
+ tests/unit/test_batcher.py                                      | 2 +-
+ tests/unit/test_client.py                                       | 2 +-
+ tests/unit/test_cluster.py                                      | 2 +-
+ tests/unit/test_column_family.py                                | 2 +-
+ tests/unit/test_encryption_info.py                              | 2 +-
+ tests/unit/test_instance.py                                     | 2 +-
+ tests/unit/test_row.py                                          | 2 +-
+ tests/unit/test_row_data.py                                     | 2 +-
+ tests/unit/test_table.py                                        | 2 +-
+ 15 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/tests/unit/_testing.py b/tests/unit/_testing.py
+index 302d33a..1a4c5e8 100644
+--- a/tests/unit/_testing.py
++++ b/tests/unit/_testing.py
+@@ -15,7 +15,7 @@
+ """Mocks used to emulate gRPC generated objects."""
+ 
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class _FakeStub(object):
+diff --git a/tests/unit/gapic/bigtable_admin_v2/test_bigtable_instance_admin.py b/tests/unit/gapic/bigtable_admin_v2/test_bigtable_instance_admin.py
+index f418081..23d1ec8 100644
+--- a/tests/unit/gapic/bigtable_admin_v2/test_bigtable_instance_admin.py
++++ b/tests/unit/gapic/bigtable_admin_v2/test_bigtable_instance_admin.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/bigtable_admin_v2/test_bigtable_table_admin.py b/tests/unit/gapic/bigtable_admin_v2/test_bigtable_table_admin.py
+index 6bfe7d0..1286d95 100644
+--- a/tests/unit/gapic/bigtable_admin_v2/test_bigtable_table_admin.py
++++ b/tests/unit/gapic/bigtable_admin_v2/test_bigtable_table_admin.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/bigtable_v2/test_bigtable.py b/tests/unit/gapic/bigtable_v2/test_bigtable.py
+index 3735f10..d4ae82c 100644
+--- a/tests/unit/gapic/bigtable_v2/test_bigtable.py
++++ b/tests/unit/gapic/bigtable_v2/test_bigtable.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/test_app_profile.py b/tests/unit/test_app_profile.py
+index 6422e87..dab766b 100644
+--- a/tests/unit/test_app_profile.py
++++ b/tests/unit/test_app_profile.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ 
+diff --git a/tests/unit/test_backup.py b/tests/unit/test_backup.py
+index a32e18a..56749f8 100644
+--- a/tests/unit/test_backup.py
++++ b/tests/unit/test_backup.py
+@@ -14,7 +14,7 @@
+ 
+ 
+ import datetime
+-import mock
++from unittest import mock
+ import unittest
+ 
+ from ._testing import _make_credentials
+diff --git a/tests/unit/test_batcher.py b/tests/unit/test_batcher.py
+index 8760c3a..3f0f291 100644
+--- a/tests/unit/test_batcher.py
++++ b/tests/unit/test_batcher.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ 
+diff --git a/tests/unit/test_client.py b/tests/unit/test_client.py
+index 5c55776..e6454d8 100644
+--- a/tests/unit/test_client.py
++++ b/tests/unit/test_client.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ 
+diff --git a/tests/unit/test_cluster.py b/tests/unit/test_cluster.py
+index 1194e53..ce37ad4 100644
+--- a/tests/unit/test_cluster.py
++++ b/tests/unit/test_cluster.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from ._testing import _make_credentials
+diff --git a/tests/unit/test_column_family.py b/tests/unit/test_column_family.py
+index 601c37c..eb6af4e 100644
+--- a/tests/unit/test_column_family.py
++++ b/tests/unit/test_column_family.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ 
+diff --git a/tests/unit/test_encryption_info.py b/tests/unit/test_encryption_info.py
+index ede6f48..40fb1b1 100644
+--- a/tests/unit/test_encryption_info.py
++++ b/tests/unit/test_encryption_info.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google.cloud.bigtable import enums
+ 
+diff --git a/tests/unit/test_instance.py b/tests/unit/test_instance.py
+index e493fd9..b8bf3cb 100644
+--- a/tests/unit/test_instance.py
++++ b/tests/unit/test_instance.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ from google.cloud.bigtable.cluster import Cluster
+diff --git a/tests/unit/test_row.py b/tests/unit/test_row.py
+index 6b5f416..3a89019 100644
+--- a/tests/unit/test_row.py
++++ b/tests/unit/test_row.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ 
+diff --git a/tests/unit/test_row_data.py b/tests/unit/test_row_data.py
+index ae5e609..1ce9f3d 100644
+--- a/tests/unit/test_row_data.py
++++ b/tests/unit/test_row_data.py
+@@ -14,7 +14,7 @@
+ 
+ 
+ import unittest
+-import mock
++from unittest import mock
+ 
+ from google.api_core.exceptions import DeadlineExceeded
+ from ._testing import _make_credentials
+diff --git a/tests/unit/test_table.py b/tests/unit/test_table.py
+index d4ec0e7..c14097e 100644
+--- a/tests/unit/test_table.py
++++ b/tests/unit/test_table.py
+@@ -16,7 +16,7 @@
+ import unittest
+ import warnings
+ 
+-import mock
++from unittest import mock
+ 
+ from ._testing import _make_credentials
+ from google.api_core.exceptions import DeadlineExceeded
+-- 
+2.31.1
+

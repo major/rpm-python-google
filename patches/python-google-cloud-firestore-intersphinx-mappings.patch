@@ -1,0 +1,32 @@
+From 6f9c5a7c285e4f290fefaa70fd61cc82f0d36830 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 13 Sep 2021 10:21:00 -0500
+Subject: [PATCH] Use local intersphinx mappings
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ docs/conf.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/docs/conf.py b/docs/conf.py
+index f4aee00..cc210bc 100644
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -359,11 +359,11 @@ texinfo_documents = [
+ 
+ # Example configuration for intersphinx: refer to the Python standard library.
+ intersphinx_mapping = {
+-    "python": ("https://python.readthedocs.org/en/latest/", None),
++    "python": ("/usr/share/doc/python3-docs/html/", None),
+     "google-auth": ("https://googleapis.dev/python/google-auth/latest/", None),
+     "google.api_core": ("https://googleapis.dev/python/google-api-core/latest/", None,),
+-    "grpc": ("https://grpc.github.io/grpc/python/", None),
+-    "proto-plus": ("https://proto-plus-python.readthedocs.io/en/latest/", None),
++    "grpc": ("/usr/share/doc/grpc/python/html/", None),
++    "proto-plus": ("/usr/share/doc/python3-proto-plus-doc/html/", None),
+     "protobuf": ("https://googleapis.dev/python/protobuf/latest/", None),
+ }
+ 
+-- 
+2.31.1
+

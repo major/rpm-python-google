@@ -1,0 +1,82 @@
+From e57acd6b271d9310b498c35b43ee9d4ee22e3a72 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 26 Aug 2021 14:23:06 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/asset_v1/test_asset_service.py        | 2 +-
+ tests/unit/gapic/asset_v1p1beta1/test_asset_service.py | 2 +-
+ tests/unit/gapic/asset_v1p2beta1/test_asset_service.py | 2 +-
+ tests/unit/gapic/asset_v1p4beta1/test_asset_service.py | 2 +-
+ tests/unit/gapic/asset_v1p5beta1/test_asset_service.py | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/tests/unit/gapic/asset_v1/test_asset_service.py b/tests/unit/gapic/asset_v1/test_asset_service.py
+index 8eb6e5f..a93a8c8 100644
+--- a/tests/unit/gapic/asset_v1/test_asset_service.py
++++ b/tests/unit/gapic/asset_v1/test_asset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/asset_v1p1beta1/test_asset_service.py b/tests/unit/gapic/asset_v1p1beta1/test_asset_service.py
+index 6c2579a..69770ff 100644
+--- a/tests/unit/gapic/asset_v1p1beta1/test_asset_service.py
++++ b/tests/unit/gapic/asset_v1p1beta1/test_asset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/asset_v1p2beta1/test_asset_service.py b/tests/unit/gapic/asset_v1p2beta1/test_asset_service.py
+index c8e463a..e919111 100644
+--- a/tests/unit/gapic/asset_v1p2beta1/test_asset_service.py
++++ b/tests/unit/gapic/asset_v1p2beta1/test_asset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/asset_v1p4beta1/test_asset_service.py b/tests/unit/gapic/asset_v1p4beta1/test_asset_service.py
+index 71b7109..2945dbb 100644
+--- a/tests/unit/gapic/asset_v1p4beta1/test_asset_service.py
++++ b/tests/unit/gapic/asset_v1p4beta1/test_asset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/asset_v1p5beta1/test_asset_service.py b/tests/unit/gapic/asset_v1p5beta1/test_asset_service.py
+index 3070a97..65cf997 100644
+--- a/tests/unit/gapic/asset_v1p5beta1/test_asset_service.py
++++ b/tests/unit/gapic/asset_v1p5beta1/test_asset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

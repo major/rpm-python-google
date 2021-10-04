@@ -1,0 +1,96 @@
+From 3805a61165ac8862fbb4354ff553d39ddd56ff6d Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 26 Aug 2021 16:00:36 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/automl_v1/test_auto_ml.py                 | 2 +-
+ tests/unit/gapic/automl_v1/test_prediction_service.py      | 2 +-
+ tests/unit/gapic/automl_v1beta1/test_auto_ml.py            | 2 +-
+ tests/unit/gapic/automl_v1beta1/test_prediction_service.py | 2 +-
+ tests/unit/test_gcs_client_v1beta1.py                      | 2 +-
+ tests/unit/test_tables_client_v1beta1.py                   | 2 +-
+ 6 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/tests/unit/gapic/automl_v1/test_auto_ml.py b/tests/unit/gapic/automl_v1/test_auto_ml.py
+index c906c83..a65cdec 100644
+--- a/tests/unit/gapic/automl_v1/test_auto_ml.py
++++ b/tests/unit/gapic/automl_v1/test_auto_ml.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/automl_v1/test_prediction_service.py b/tests/unit/gapic/automl_v1/test_prediction_service.py
+index 93df8b4..be5f54e 100644
+--- a/tests/unit/gapic/automl_v1/test_prediction_service.py
++++ b/tests/unit/gapic/automl_v1/test_prediction_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/automl_v1beta1/test_auto_ml.py b/tests/unit/gapic/automl_v1beta1/test_auto_ml.py
+index 912f04b..4e45bd2 100644
+--- a/tests/unit/gapic/automl_v1beta1/test_auto_ml.py
++++ b/tests/unit/gapic/automl_v1beta1/test_auto_ml.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/automl_v1beta1/test_prediction_service.py b/tests/unit/gapic/automl_v1beta1/test_prediction_service.py
+index 47f66dd..adecdf0 100644
+--- a/tests/unit/gapic/automl_v1beta1/test_prediction_service.py
++++ b/tests/unit/gapic/automl_v1beta1/test_prediction_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/test_gcs_client_v1beta1.py b/tests/unit/test_gcs_client_v1beta1.py
+index 306bb61..0bce6d0 100644
+--- a/tests/unit/test_gcs_client_v1beta1.py
++++ b/tests/unit/test_gcs_client_v1beta1.py
+@@ -16,7 +16,7 @@
+ 
+ """Unit tests."""
+ 
+-import mock
++from unittest import mock
+ import pandas
+ import pytest
+ import re
+diff --git a/tests/unit/test_tables_client_v1beta1.py b/tests/unit/test_tables_client_v1beta1.py
+index 4df06d4..12fd715 100644
+--- a/tests/unit/test_tables_client_v1beta1.py
++++ b/tests/unit/test_tables_client_v1beta1.py
+@@ -16,7 +16,7 @@
+ 
+ """Unit tests."""
+ 
+-import mock
++from unittest import mock
+ import pandas
+ import pytest
+ 
+-- 
+2.31.1
+

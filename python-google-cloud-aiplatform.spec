@@ -1,3 +1,5 @@
+# 🔥 Requires bigquery
+
 # tests are enabled by default
 %bcond_without tests
 

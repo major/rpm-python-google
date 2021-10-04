@@ -1,0 +1,418 @@
+From 45d49478f198bfb66b2928822b0ac986aa0f9f6c Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 30 Aug 2021 07:45:14 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/firestore_admin_v1/test_firestore_admin.py | 2 +-
+ tests/unit/gapic/firestore_v1/test_firestore.py             | 2 +-
+ tests/unit/v1/_test_helpers.py                              | 2 +-
+ tests/unit/v1/test__helpers.py                              | 2 +-
+ tests/unit/v1/test_async_batch.py                           | 2 +-
+ tests/unit/v1/test_async_client.py                          | 2 +-
+ tests/unit/v1/test_async_collection.py                      | 2 +-
+ tests/unit/v1/test_async_document.py                        | 2 +-
+ tests/unit/v1/test_async_query.py                           | 2 +-
+ tests/unit/v1/test_async_transaction.py                     | 2 +-
+ tests/unit/v1/test_base_batch.py                            | 2 +-
+ tests/unit/v1/test_base_client.py                           | 2 +-
+ tests/unit/v1/test_base_collection.py                       | 2 +-
+ tests/unit/v1/test_base_document.py                         | 2 +-
+ tests/unit/v1/test_base_query.py                            | 2 +-
+ tests/unit/v1/test_base_transaction.py                      | 2 +-
+ tests/unit/v1/test_batch.py                                 | 2 +-
+ tests/unit/v1/test_bulk_batch.py                            | 2 +-
+ tests/unit/v1/test_bundle.py                                | 2 +-
+ tests/unit/v1/test_client.py                                | 2 +-
+ tests/unit/v1/test_collection.py                            | 2 +-
+ tests/unit/v1/test_cross_language.py                        | 2 +-
+ tests/unit/v1/test_document.py                              | 2 +-
+ tests/unit/v1/test_field_path.py                            | 2 +-
+ tests/unit/v1/test_order.py                                 | 2 +-
+ tests/unit/v1/test_query.py                                 | 2 +-
+ tests/unit/v1/test_rate_limiter.py                          | 2 +-
+ tests/unit/v1/test_transaction.py                           | 2 +-
+ tests/unit/v1/test_watch.py                                 | 2 +-
+ 29 files changed, 29 insertions(+), 29 deletions(-)
+
+diff --git a/tests/unit/gapic/firestore_admin_v1/test_firestore_admin.py b/tests/unit/gapic/firestore_admin_v1/test_firestore_admin.py
+index d16690c..77fae87 100644
+--- a/tests/unit/gapic/firestore_admin_v1/test_firestore_admin.py
++++ b/tests/unit/gapic/firestore_admin_v1/test_firestore_admin.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/firestore_v1/test_firestore.py b/tests/unit/gapic/firestore_v1/test_firestore.py
+index de0f39a..75f57ab 100644
+--- a/tests/unit/gapic/firestore_v1/test_firestore.py
++++ b/tests/unit/gapic/firestore_v1/test_firestore.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/v1/_test_helpers.py b/tests/unit/v1/_test_helpers.py
+index 92d20b7..4d5ee2e 100644
+--- a/tests/unit/v1/_test_helpers.py
++++ b/tests/unit/v1/_test_helpers.py
+@@ -14,7 +14,7 @@
+ 
+ import concurrent.futures
+ import datetime
+-import mock
++from unittest import mock
+ import typing
+ 
+ import google
+diff --git a/tests/unit/v1/test__helpers.py b/tests/unit/v1/test__helpers.py
+index f558f3f..2d66e66 100644
+--- a/tests/unit/v1/test__helpers.py
++++ b/tests/unit/v1/test__helpers.py
+@@ -18,7 +18,7 @@ import datetime
+ import sys
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ from typing import List
+ 
+diff --git a/tests/unit/v1/test_async_batch.py b/tests/unit/v1/test_async_batch.py
+index 39f0d53..6d4192d 100644
+--- a/tests/unit/v1/test_async_batch.py
++++ b/tests/unit/v1/test_async_batch.py
+@@ -15,7 +15,7 @@
+ import pytest
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from tests.unit.v1.test__helpers import AsyncMock
+ 
+ 
+diff --git a/tests/unit/v1/test_async_client.py b/tests/unit/v1/test_async_client.py
+index 598da81..09e95d7 100644
+--- a/tests/unit/v1/test_async_client.py
++++ b/tests/unit/v1/test_async_client.py
+@@ -17,7 +17,7 @@ import datetime
+ import types
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from google.cloud.firestore_v1.types.document import Document
+ from google.cloud.firestore_v1.types.firestore import RunQueryResponse
+ from tests.unit.v1.test__helpers import AsyncIter, AsyncMock
+diff --git a/tests/unit/v1/test_async_collection.py b/tests/unit/v1/test_async_collection.py
+index 1955ca5..8878097 100644
+--- a/tests/unit/v1/test_async_collection.py
++++ b/tests/unit/v1/test_async_collection.py
+@@ -18,7 +18,7 @@ import pytest
+ import types
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from tests.unit.v1.test__helpers import AsyncIter, AsyncMock
+ 
+ 
+diff --git a/tests/unit/v1/test_async_document.py b/tests/unit/v1/test_async_document.py
+index 701ef5a..46dc9a3 100644
+--- a/tests/unit/v1/test_async_document.py
++++ b/tests/unit/v1/test_async_document.py
+@@ -16,7 +16,7 @@ import pytest
+ import collections
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from tests.unit.v1.test__helpers import AsyncIter, AsyncMock
+ 
+ 
+diff --git a/tests/unit/v1/test_async_query.py b/tests/unit/v1/test_async_query.py
+index 4d18d55..b8b1007 100644
+--- a/tests/unit/v1/test_async_query.py
++++ b/tests/unit/v1/test_async_query.py
+@@ -18,7 +18,7 @@ import pytest
+ import types
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from tests.unit.v1.test__helpers import AsyncIter, AsyncMock
+ from tests.unit.v1.test_base_query import (
+     _make_credentials,
+diff --git a/tests/unit/v1/test_async_transaction.py b/tests/unit/v1/test_async_transaction.py
+index 2e0f572..c60aea8 100644
+--- a/tests/unit/v1/test_async_transaction.py
++++ b/tests/unit/v1/test_async_transaction.py
+@@ -15,7 +15,7 @@
+ import pytest
+ import aiounittest
+ 
+-import mock
++from unittest import mock
+ from tests.unit.v1.test__helpers import AsyncMock
+ 
+ 
+diff --git a/tests/unit/v1/test_base_batch.py b/tests/unit/v1/test_base_batch.py
+index 6bdb0da..bdd7b95 100644
+--- a/tests/unit/v1/test_base_batch.py
++++ b/tests/unit/v1/test_base_batch.py
+@@ -15,7 +15,7 @@
+ import unittest
+ from google.cloud.firestore_v1.base_batch import BaseWriteBatch
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestableBaseWriteBatch(BaseWriteBatch):
+diff --git a/tests/unit/v1/test_base_client.py b/tests/unit/v1/test_base_client.py
+index 5de0e49..f5ca05c 100644
+--- a/tests/unit/v1/test_base_client.py
++++ b/tests/unit/v1/test_base_client.py
+@@ -16,7 +16,7 @@ import datetime
+ import unittest
+ import grpc
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestBaseClient(unittest.TestCase):
+diff --git a/tests/unit/v1/test_base_collection.py b/tests/unit/v1/test_base_collection.py
+index 01c6848..c8a8b7f 100644
+--- a/tests/unit/v1/test_base_collection.py
++++ b/tests/unit/v1/test_base_collection.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestCollectionReference(unittest.TestCase):
+diff --git a/tests/unit/v1/test_base_document.py b/tests/unit/v1/test_base_document.py
+index bba47a9..a47f828 100644
+--- a/tests/unit/v1/test_base_document.py
++++ b/tests/unit/v1/test_base_document.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ from proto.datetime_helpers import DatetimeWithNanoseconds
+ from google.protobuf import timestamp_pb2
+ 
+diff --git a/tests/unit/v1/test_base_query.py b/tests/unit/v1/test_base_query.py
+index 3fb9a68..468acf9 100644
+--- a/tests/unit/v1/test_base_query.py
++++ b/tests/unit/v1/test_base_query.py
+@@ -15,7 +15,7 @@
+ import datetime
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestBaseQuery(unittest.TestCase):
+diff --git a/tests/unit/v1/test_base_transaction.py b/tests/unit/v1/test_base_transaction.py
+index b0dc527..9888a66 100644
+--- a/tests/unit/v1/test_base_transaction.py
++++ b/tests/unit/v1/test_base_transaction.py
+@@ -13,7 +13,7 @@
+ # limitations under the License.
+ 
+ import unittest
+-import mock
++from unittest import mock
+ 
+ 
+ class TestBaseTransaction(unittest.TestCase):
+diff --git a/tests/unit/v1/test_batch.py b/tests/unit/v1/test_batch.py
+index 3e3bef1..2a794d4 100644
+--- a/tests/unit/v1/test_batch.py
++++ b/tests/unit/v1/test_batch.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestWriteBatch(unittest.TestCase):
+diff --git a/tests/unit/v1/test_bulk_batch.py b/tests/unit/v1/test_bulk_batch.py
+index 20d43b9..6f81e0c 100644
+--- a/tests/unit/v1/test_bulk_batch.py
++++ b/tests/unit/v1/test_bulk_batch.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestBulkWriteBatch(unittest.TestCase):
+diff --git a/tests/unit/v1/test_bundle.py b/tests/unit/v1/test_bundle.py
+index 4332a92..5bdb92b 100644
+--- a/tests/unit/v1/test_bundle.py
++++ b/tests/unit/v1/test_bundle.py
+@@ -18,7 +18,7 @@ import sys
+ import typing
+ import unittest
+ 
+-import mock
++from unittest import mock
+ from google.cloud.firestore_bundle import BundleElement, FirestoreBundle
+ from google.cloud.firestore_v1 import _helpers
+ from google.cloud.firestore_v1.async_collection import AsyncCollectionReference
+diff --git a/tests/unit/v1/test_client.py b/tests/unit/v1/test_client.py
+index 5fbc737..0013113 100644
+--- a/tests/unit/v1/test_client.py
++++ b/tests/unit/v1/test_client.py
+@@ -16,7 +16,7 @@ import datetime
+ import types
+ import unittest
+ 
+-import mock
++from unittest import mock
+ from google.cloud.firestore_v1.types.document import Document
+ from google.cloud.firestore_v1.types.firestore import RunQueryResponse
+ 
+diff --git a/tests/unit/v1/test_collection.py b/tests/unit/v1/test_collection.py
+index cfefeb9..b672d81 100644
+--- a/tests/unit/v1/test_collection.py
++++ b/tests/unit/v1/test_collection.py
+@@ -17,7 +17,7 @@ from google.cloud.firestore_v1.types.firestore import RunQueryResponse
+ import types
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from tests.unit.v1 import _test_helpers
+ 
+diff --git a/tests/unit/v1/test_cross_language.py b/tests/unit/v1/test_cross_language.py
+index 6d57c11..6cf95de 100644
+--- a/tests/unit/v1/test_cross_language.py
++++ b/tests/unit/v1/test_cross_language.py
+@@ -17,7 +17,7 @@ import glob
+ import json
+ import os
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from google.cloud.firestore_v1.types import document
+diff --git a/tests/unit/v1/test_document.py b/tests/unit/v1/test_document.py
+index 30c8a1c..12fb689 100644
+--- a/tests/unit/v1/test_document.py
++++ b/tests/unit/v1/test_document.py
+@@ -15,7 +15,7 @@
+ import collections
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class TestDocumentReference(unittest.TestCase):
+diff --git a/tests/unit/v1/test_field_path.py b/tests/unit/v1/test_field_path.py
+index 55aefab..d9a70af 100644
+--- a/tests/unit/v1/test_field_path.py
++++ b/tests/unit/v1/test_field_path.py
+@@ -15,7 +15,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class Test__tokenize_field_path(unittest.TestCase):
+diff --git a/tests/unit/v1/test_order.py b/tests/unit/v1/test_order.py
+index 90d99e5..26b38d1 100644
+--- a/tests/unit/v1/test_order.py
++++ b/tests/unit/v1/test_order.py
+@@ -13,7 +13,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import unittest
+ 
+ from google.cloud.firestore_v1._helpers import encode_value, GeoPoint
+diff --git a/tests/unit/v1/test_query.py b/tests/unit/v1/test_query.py
+index ea28969..184da75 100644
+--- a/tests/unit/v1/test_query.py
++++ b/tests/unit/v1/test_query.py
+@@ -17,7 +17,7 @@ from google.cloud.firestore_v1.types.firestore import RunQueryResponse
+ import types
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from tests.unit.v1.test_base_query import _make_credentials
+diff --git a/tests/unit/v1/test_rate_limiter.py b/tests/unit/v1/test_rate_limiter.py
+index ea41905..bf912ff 100644
+--- a/tests/unit/v1/test_rate_limiter.py
++++ b/tests/unit/v1/test_rate_limiter.py
+@@ -16,7 +16,7 @@ import datetime
+ import unittest
+ from typing import Optional
+ 
+-import mock
++from unittest import mock
+ import google
+ from google.cloud.firestore_v1 import rate_limiter
+ 
+diff --git a/tests/unit/v1/test_transaction.py b/tests/unit/v1/test_transaction.py
+index 3a093a3..7271b9e 100644
+--- a/tests/unit/v1/test_transaction.py
++++ b/tests/unit/v1/test_transaction.py
+@@ -13,7 +13,7 @@
+ # limitations under the License.
+ 
+ import unittest
+-import mock
++from unittest import mock
+ 
+ 
+ class TestTransaction(unittest.TestCase):
+diff --git a/tests/unit/v1/test_watch.py b/tests/unit/v1/test_watch.py
+index c5b7584..8335079 100644
+--- a/tests/unit/v1/test_watch.py
++++ b/tests/unit/v1/test_watch.py
+@@ -14,7 +14,7 @@
+ 
+ import datetime
+ import unittest
+-import mock
++from unittest import mock
+ from google.cloud.firestore_v1.types import firestore
+ 
+ 
+-- 
+2.31.1
+

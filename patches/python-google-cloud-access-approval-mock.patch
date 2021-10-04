@@ -1,0 +1,26 @@
+From 6e9dc85ae7094faae80fe4aad2ed1e4e61d4864b Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 26 Aug 2021 09:52:26 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/accessapproval_v1/test_access_approval.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/accessapproval_v1/test_access_approval.py b/tests/unit/gapic/accessapproval_v1/test_access_approval.py
+index 0a52eec..b20dcec 100644
+--- a/tests/unit/gapic/accessapproval_v1/test_access_approval.py
++++ b/tests/unit/gapic/accessapproval_v1/test_access_approval.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

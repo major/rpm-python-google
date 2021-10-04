@@ -1,0 +1,26 @@
+From cc3a3f5b72b9e554a9049656b4a924c721744cc1 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 26 Aug 2021 08:59:04 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/apigateway_v1/test_api_gateway_service.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/apigateway_v1/test_api_gateway_service.py b/tests/unit/gapic/apigateway_v1/test_api_gateway_service.py
+index f46605f..5e38e7c 100644
+--- a/tests/unit/gapic/apigateway_v1/test_api_gateway_service.py
++++ b/tests/unit/gapic/apigateway_v1/test_api_gateway_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

@@ -1,0 +1,40 @@
+From 1ac1617c79fc7137fedd6751456a5924a94cbf5d Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 30 Aug 2021 07:19:28 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/budgets_v1/test_budget_service.py      | 2 +-
+ tests/unit/gapic/budgets_v1beta1/test_budget_service.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/unit/gapic/budgets_v1/test_budget_service.py b/tests/unit/gapic/budgets_v1/test_budget_service.py
+index 991aa14..70df44e 100644
+--- a/tests/unit/gapic/budgets_v1/test_budget_service.py
++++ b/tests/unit/gapic/budgets_v1/test_budget_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/budgets_v1beta1/test_budget_service.py b/tests/unit/gapic/budgets_v1beta1/test_budget_service.py
+index 0450139..4697311 100644
+--- a/tests/unit/gapic/budgets_v1beta1/test_budget_service.py
++++ b/tests/unit/gapic/budgets_v1beta1/test_budget_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

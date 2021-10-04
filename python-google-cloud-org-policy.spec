@@ -1,17 +1,15 @@
-# 🔥 2.25.1 won't work with Python 3.10
+# The package currently has an empty test directory.
+%bcond_with tests
 
-# tests are enabled by default
-%bcond_without tests
-
-%global         srcname     google-cloud-bigquery
-%global         forgeurl    https://github.com/googleapis/python-bigquery
-Version:        2.25.1
+%global         srcname     google-cloud-org-policy
+%global         forgeurl    https://github.com/googleapis/python-org-policy
+Version:        1.0.2
 %global         tag         v%{version}
 %forgemeta
 
 Name:           python-%{srcname}
 Release:        1%{?dist}
-Summary:        Python Client for Google Cloud Storage
+Summary:        Python Client for Google Cloud Organization Policy API
 
 License:        ASL 2.0
 URL:            %forgeurl
@@ -19,7 +17,6 @@ Source0:        %forgesource
 
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
@@ -28,9 +25,8 @@ BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:
-Google Cloud Storage allows you to store data on Google infrastructure with
-very high reliability, performance and availability, and can be used to
-distribute large data objects to users via direct download.}
+The Organization Policy API allows users to configure governance rules on their
+GCP resources across the Cloud Resource Hierarchy.}
 
 %description %{_description}
 
@@ -53,7 +49,7 @@ Documentation for python-%{srcname}
 
 
 %prep
-%forgesetup
+%forgeautosetup -p1
 
 
 %generate_buildrequires
@@ -64,24 +60,32 @@ Documentation for python-%{srcname}
 %pyproject_wheel
 
 # Generate documentation.
-PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
+PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html %{?_smp_mflags}
+rm -rf html/.{doctrees,buildinfo}
 
 
 %install
 %pyproject_install
 %pyproject_save_files google
 
+# Remove extra scripts, docs files, and tests.
+rm -rf %{buildroot}%{python3_sitelib}/{docs,scripts,tests}
+
 
 %if %{with tests}
 %check
-%pytest --import-mode importlib tests
+# Work around an unusual pytest/PEP 420 issue where pytest can't import the
+# installed module. Thanks to mhroncok for the help!
+mv google{,_}
+%pytest --disable-warnings tests/unit
+mv google{_,}
 %endif
 
 
 %files -n python3-%{srcname} -f %{pyproject_files}
 %license LICENSE
 %doc README.rst CHANGELOG.md
-%{python3_sitelib}/google_cloud_bigquery-%{version}-py%{python3_version}-nspkg.pth
+%{python3_sitelib}/google_cloud_org_policy-%{version}-py%{python3_version}-nspkg.pth
 
 
 %files -n python3-%{srcname}-doc
@@ -90,5 +94,5 @@ PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 2.25.1-1
+* Thu Aug 26 2021 Major Hayden <major@mhtx.net> - 1.0.2-1
 - First package.

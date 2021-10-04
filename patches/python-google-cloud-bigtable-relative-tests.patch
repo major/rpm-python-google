@@ -1,0 +1,151 @@
+From 7cd3f086415d3aa3cbee0f3227c427fc9f287a51 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Fri, 27 Aug 2021 15:19:12 -0500
+Subject: [PATCH] Avoid relative imports for tests
+
+---
+ tests/unit/test_app_profile.py   | 2 +-
+ tests/unit/test_backup.py        | 2 +-
+ tests/unit/test_batcher.py       | 2 +-
+ tests/unit/test_client.py        | 2 +-
+ tests/unit/test_cluster.py       | 2 +-
+ tests/unit/test_column_family.py | 2 +-
+ tests/unit/test_instance.py      | 2 +-
+ tests/unit/test_row.py           | 2 +-
+ tests/unit/test_row_data.py      | 2 +-
+ tests/unit/test_table.py         | 2 +-
+ 10 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/tests/unit/test_app_profile.py b/tests/unit/test_app_profile.py
+index dab766b..103c056 100644
+--- a/tests/unit/test_app_profile.py
++++ b/tests/unit/test_app_profile.py
+@@ -17,7 +17,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ 
+ class TestAppProfile(unittest.TestCase):
+diff --git a/tests/unit/test_backup.py b/tests/unit/test_backup.py
+index 56749f8..b42dd70 100644
+--- a/tests/unit/test_backup.py
++++ b/tests/unit/test_backup.py
+@@ -17,7 +17,7 @@ import datetime
+ from unittest import mock
+ import unittest
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ from google.cloud._helpers import UTC
+ 
+ 
+diff --git a/tests/unit/test_batcher.py b/tests/unit/test_batcher.py
+index 3f0f291..bbd8c8c 100644
+--- a/tests/unit/test_batcher.py
++++ b/tests/unit/test_batcher.py
+@@ -17,7 +17,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ from google.cloud.bigtable.batcher import MutationsBatcher
+ from google.cloud.bigtable.row import DirectRow
+diff --git a/tests/unit/test_client.py b/tests/unit/test_client.py
+index e6454d8..a7a7527 100644
+--- a/tests/unit/test_client.py
++++ b/tests/unit/test_client.py
+@@ -17,7 +17,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ 
+ class Test__create_gapic_client(unittest.TestCase):
+diff --git a/tests/unit/test_cluster.py b/tests/unit/test_cluster.py
+index ce37ad4..a14c302 100644
+--- a/tests/unit/test_cluster.py
++++ b/tests/unit/test_cluster.py
+@@ -18,7 +18,7 @@ import unittest
+ from unittest import mock
+ import pytest
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ 
+ class TestCluster(unittest.TestCase):
+diff --git a/tests/unit/test_column_family.py b/tests/unit/test_column_family.py
+index eb6af4e..39c30fd 100644
+--- a/tests/unit/test_column_family.py
++++ b/tests/unit/test_column_family.py
+@@ -16,7 +16,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ 
+ class TestMaxVersionsGCRule(unittest.TestCase):
+diff --git a/tests/unit/test_instance.py b/tests/unit/test_instance.py
+index b8bf3cb..3462631 100644
+--- a/tests/unit/test_instance.py
++++ b/tests/unit/test_instance.py
+@@ -17,7 +17,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ from google.cloud.bigtable.cluster import Cluster
+ 
+ 
+diff --git a/tests/unit/test_row.py b/tests/unit/test_row.py
+index 3a89019..5d2c09d 100644
+--- a/tests/unit/test_row.py
++++ b/tests/unit/test_row.py
+@@ -17,7 +17,7 @@ import unittest
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ 
+ 
+ class TestRow(unittest.TestCase):
+diff --git a/tests/unit/test_row_data.py b/tests/unit/test_row_data.py
+index 1ce9f3d..dfc5fc3 100644
+--- a/tests/unit/test_row_data.py
++++ b/tests/unit/test_row_data.py
+@@ -17,7 +17,7 @@ import unittest
+ from unittest import mock
+ 
+ from google.api_core.exceptions import DeadlineExceeded
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ from google.cloud.bigtable.row_set import RowRange
+ from google.cloud.bigtable_v2.types import data as data_v2_pb2
+ 
+diff --git a/tests/unit/test_table.py b/tests/unit/test_table.py
+index c14097e..41fe0e9 100644
+--- a/tests/unit/test_table.py
++++ b/tests/unit/test_table.py
+@@ -18,7 +18,7 @@ import warnings
+ 
+ from unittest import mock
+ 
+-from ._testing import _make_credentials
++from _testing import _make_credentials
+ from google.api_core.exceptions import DeadlineExceeded
+ 
+ 
+-- 
+2.31.1
+

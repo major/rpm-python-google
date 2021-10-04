@@ -1,0 +1,40 @@
+From 340817da6fb2100d6b9ff890e54861eb5806c55d Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 26 Aug 2021 10:11:06 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/apigeeconnect_v1/test_connection_service.py | 2 +-
+ tests/unit/gapic/apigeeconnect_v1/test_tether.py             | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/unit/gapic/apigeeconnect_v1/test_connection_service.py b/tests/unit/gapic/apigeeconnect_v1/test_connection_service.py
+index 35d3ad0..d3feeb6 100644
+--- a/tests/unit/gapic/apigeeconnect_v1/test_connection_service.py
++++ b/tests/unit/gapic/apigeeconnect_v1/test_connection_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/apigeeconnect_v1/test_tether.py b/tests/unit/gapic/apigeeconnect_v1/test_tether.py
+index 936d227..6b454a5 100644
+--- a/tests/unit/gapic/apigeeconnect_v1/test_tether.py
++++ b/tests/unit/gapic/apigeeconnect_v1/test_tether.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+
