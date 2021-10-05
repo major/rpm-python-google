@@ -3,7 +3,7 @@
 
 %global         srcname     google-cloud-access-context-manager
 %global         forgeurl    https://github.com/googleapis/python-access-context-manager
-Version:        0.1.7
+Version:        0.1.8
 %global         tag         v%{version}
 %forgemeta
 
@@ -90,5 +90,5 @@ mv google{_,}
 
 
 %changelog
-* Thu Aug 26 2021 Major Hayden <major@mhtx.net> - 0.1.7-1
+* Thu Aug 26 2021 Major Hayden <major@mhtx.net> - 0.1.8-1
 - First package.
