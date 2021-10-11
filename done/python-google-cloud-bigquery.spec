@@ -1,36 +1,37 @@
-# 🔥 2.25.1 won't work with Python 3.10
+# 🔥 2.28.0 won't work with Python 3.10
 
 # tests are enabled by default
 %bcond_without tests
 
 %global         srcname     google-cloud-bigquery
 %global         forgeurl    https://github.com/googleapis/python-bigquery
-Version:        2.25.1
+Version:        2.28.0
 %global         tag         v%{version}
 %forgemeta
 
 Name:           python-%{srcname}
 Release:        1%{?dist}
-Summary:        Python Client for Google Cloud Storage
+Summary:        Python Client for Google BigQuery
 
 License:        ASL 2.0
 URL:            %forgeurl
 Source0:        %forgesource
+Patch0:         python-google-cloud-bigquery-python-version.patch
+Patch1:         python-google-cloud-bigquery-mock.patch
 
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
+BuildRequires:  python3dist(freezegun)
+BuildRequires:  python3dist(google-cloud-testutils)
 BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:
-Google Cloud Storage allows you to store data on Google infrastructure with
-very high reliability, performance and availability, and can be used to
-distribute large data objects to users via direct download.}
+Python Client for Google BigQuery}
 
 %description %{_description}
 
@@ -53,7 +54,7 @@ Documentation for python-%{srcname}
 
 
 %prep
-%forgesetup
+%forgeautosetup -p1
 
 
 %generate_buildrequires
@@ -64,7 +65,8 @@ Documentation for python-%{srcname}
 %pyproject_wheel
 
 # Generate documentation.
-PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
+PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html %{?_smp_mflags}
+rm -rf html/.{doctrees,buildinfo}
 
 
 %install
@@ -74,7 +76,16 @@ PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
 
 %if %{with tests}
 %check
-%pytest --import-mode importlib tests
+# Work around an unusual pytest/PEP 420 issue where pytest can't import the
+# installed module. Thanks to mhroncok for the help!
+# NOTE(mhayden): The magics and line_arg_parser tests must run inside ipython
+# and pytest doesn't seem to handle that.
+mv google{,_}
+%pytest --disable-warnings \
+    --ignore=tests/unit/test_magics.py \
+    --ignore-glob=tests/unit/line_arg_parser/* \
+    tests/unit
+mv google{_,}
 %endif
 
 

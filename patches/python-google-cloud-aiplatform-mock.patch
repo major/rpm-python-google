@@ -1,0 +1,376 @@
+From 3e17a54574fd3f2072c43f4621d21ef0a710f1c0 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 09:25:28 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/aiplatform_v1/test_dataset_service.py          | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_endpoint_service.py         | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_index_endpoint_service.py   | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_index_service.py            | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_job_service.py              | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_migration_service.py        | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_model_service.py            | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_pipeline_service.py         | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_prediction_service.py       | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_specialist_pool_service.py  | 2 +-
+ tests/unit/gapic/aiplatform_v1/test_vizier_service.py           | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_dataset_service.py     | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_endpoint_service.py    | 2 +-
+ .../test_featurestore_online_serving_service.py                 | 2 +-
+ .../unit/gapic/aiplatform_v1beta1/test_featurestore_service.py  | 2 +-
+ .../gapic/aiplatform_v1beta1/test_index_endpoint_service.py     | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_index_service.py       | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_job_service.py         | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_metadata_service.py    | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_migration_service.py   | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_model_service.py       | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_pipeline_service.py    | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_prediction_service.py  | 2 +-
+ .../gapic/aiplatform_v1beta1/test_specialist_pool_service.py    | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_tensorboard_service.py | 2 +-
+ tests/unit/gapic/aiplatform_v1beta1/test_vizier_service.py      | 2 +-
+ 26 files changed, 26 insertions(+), 26 deletions(-)
+
+diff --git a/tests/unit/gapic/aiplatform_v1/test_dataset_service.py b/tests/unit/gapic/aiplatform_v1/test_dataset_service.py
+index 2016bf06..920ae388 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_dataset_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_dataset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_endpoint_service.py b/tests/unit/gapic/aiplatform_v1/test_endpoint_service.py
+index a5d026d2..02d552a5 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_endpoint_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_endpoint_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_index_endpoint_service.py b/tests/unit/gapic/aiplatform_v1/test_index_endpoint_service.py
+index 7157f629..e6d6c8fc 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_index_endpoint_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_index_endpoint_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_index_service.py b/tests/unit/gapic/aiplatform_v1/test_index_service.py
+index d39352b8..654d8fc8 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_index_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_index_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_job_service.py b/tests/unit/gapic/aiplatform_v1/test_job_service.py
+index 690da2f2..42408a39 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_job_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_job_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_migration_service.py b/tests/unit/gapic/aiplatform_v1/test_migration_service.py
+index 54b8e52e..b75c97c1 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_migration_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_migration_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_model_service.py b/tests/unit/gapic/aiplatform_v1/test_model_service.py
+index 4eeff0a8..4009d47c 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_model_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_model_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_pipeline_service.py b/tests/unit/gapic/aiplatform_v1/test_pipeline_service.py
+index bc7d4309..bdfb41b8 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_pipeline_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_pipeline_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_prediction_service.py b/tests/unit/gapic/aiplatform_v1/test_prediction_service.py
+index 768734fa..766c2486 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_prediction_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_prediction_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_specialist_pool_service.py b/tests/unit/gapic/aiplatform_v1/test_specialist_pool_service.py
+index a0658f77..b529bede 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_specialist_pool_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_specialist_pool_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1/test_vizier_service.py b/tests/unit/gapic/aiplatform_v1/test_vizier_service.py
+index 0e52df78..c762c363 100644
+--- a/tests/unit/gapic/aiplatform_v1/test_vizier_service.py
++++ b/tests/unit/gapic/aiplatform_v1/test_vizier_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_dataset_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_dataset_service.py
+index 58daf628..1db349b1 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_dataset_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_dataset_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_endpoint_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_endpoint_service.py
+index 9314f3b1..7b630a86 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_endpoint_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_endpoint_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_online_serving_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_online_serving_service.py
+index 8a4859b8..0b99ea04 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_online_serving_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_online_serving_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_service.py
+index 869271f3..55b7c43d 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_featurestore_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_index_endpoint_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_index_endpoint_service.py
+index 5d88a035..a0e51761 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_index_endpoint_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_index_endpoint_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_index_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_index_service.py
+index e9c885be..828c7348 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_index_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_index_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_job_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_job_service.py
+index 9c13ce8f..bfff1052 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_job_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_job_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_metadata_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_metadata_service.py
+index c7f2bc84..4b3e2388 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_metadata_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_metadata_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_migration_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_migration_service.py
+index 2158facf..80ecbeb0 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_migration_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_migration_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_model_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_model_service.py
+index 1a0d64c3..e2b7b836 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_model_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_model_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_pipeline_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_pipeline_service.py
+index 74bfdce0..e351def7 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_pipeline_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_pipeline_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_prediction_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_prediction_service.py
+index fda9da08..9e1d274a 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_prediction_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_prediction_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_specialist_pool_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_specialist_pool_service.py
+index bc1acf46..e3db96f5 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_specialist_pool_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_specialist_pool_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_tensorboard_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_tensorboard_service.py
+index 2c71391c..148dc1be 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_tensorboard_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_tensorboard_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/aiplatform_v1beta1/test_vizier_service.py b/tests/unit/gapic/aiplatform_v1beta1/test_vizier_service.py
+index e00fabb4..6fe24bb5 100644
+--- a/tests/unit/gapic/aiplatform_v1beta1/test_vizier_service.py
++++ b/tests/unit/gapic/aiplatform_v1beta1/test_vizier_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

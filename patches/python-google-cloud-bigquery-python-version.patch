@@ -1,18 +1,17 @@
-From efad82fc8447c2a477835aa13495f1cec31fadf9 Mon Sep 17 00:00:00 2001
+From 2325721b997a540d7b4bd96541060b0c5234c777 Mon Sep 17 00:00:00 2001
 From: Major Hayden <major@mhtx.net>
-Date: Mon, 23 Aug 2021 15:48:49 -0500
-Subject: [PATCH] Adjust Python max version requirement
+Date: Tue, 5 Oct 2021 06:50:17 -0500
+Subject: [PATCH] Allow Python 3.10
 
-Signed-off-by: Major Hayden <major@mhtx.net>
 ---
  setup.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/setup.py b/setup.py
-index a1b3b61..1eec6b5 100644
+index e751549..dcb63e1 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -132,7 +132,7 @@ setuptools.setup(
+@@ -133,7 +133,7 @@ setuptools.setup(
      namespace_packages=namespaces,
      install_requires=dependencies,
      extras_require=extras,

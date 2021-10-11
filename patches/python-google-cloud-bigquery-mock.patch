@@ -1,0 +1,396 @@
+From b0ba752154299047f70c52a0271083d382c796d4 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Tue, 5 Oct 2021 06:53:54 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/conftest.py                      | 2 +-
+ tests/unit/helpers.py                       | 4 ++--
+ tests/unit/job/test_base.py                 | 2 +-
+ tests/unit/job/test_copy.py                 | 2 +-
+ tests/unit/job/test_extract.py              | 2 +-
+ tests/unit/job/test_load.py                 | 2 +-
+ tests/unit/job/test_query.py                | 2 +-
+ tests/unit/job/test_query_pandas.py         | 2 +-
+ tests/unit/test__helpers.py                 | 2 +-
+ tests/unit/test__http.py                    | 2 +-
+ tests/unit/test__pandas_helpers.py          | 2 +-
+ tests/unit/test_client.py                   | 2 +-
+ tests/unit/test_create_dataset.py           | 2 +-
+ tests/unit/test_dataset.py                  | 2 +-
+ tests/unit/test_dbapi_connection.py         | 2 +-
+ tests/unit/test_dbapi_cursor.py             | 2 +-
+ tests/unit/test_encryption_configuration.py | 2 +-
+ tests/unit/test_job_retry.py                | 2 +-
+ tests/unit/test_list_datasets.py            | 2 +-
+ tests/unit/test_list_jobs.py                | 2 +-
+ tests/unit/test_list_projects.py            | 2 +-
+ tests/unit/test_magics.py                   | 2 +-
+ tests/unit/test_opentelemetry_tracing.py    | 2 +-
+ tests/unit/test_query.py                    | 2 +-
+ tests/unit/test_retry.py                    | 2 +-
+ tests/unit/test_schema.py                   | 2 +-
+ tests/unit/test_table.py                    | 2 +-
+ 27 files changed, 28 insertions(+), 28 deletions(-)
+
+diff --git a/tests/unit/conftest.py b/tests/unit/conftest.py
+index c2ae78e..6456d25 100644
+--- a/tests/unit/conftest.py
++++ b/tests/unit/conftest.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from .helpers import make_client
+diff --git a/tests/unit/helpers.py b/tests/unit/helpers.py
+index 67aeaca..a03715a 100644
+--- a/tests/unit/helpers.py
++++ b/tests/unit/helpers.py
+@@ -14,13 +14,13 @@
+ 
+ import google.cloud.bigquery.client
+ import google.cloud.bigquery.dataset
+-import mock
++from unittest import mock
+ import pytest
+ 
+ 
+ def make_connection(*responses):
+     import google.cloud.bigquery._http
+-    import mock
++    from unittest import mock
+     from google.cloud.exceptions import NotFound
+ 
+     mock_conn = mock.create_autospec(google.cloud.bigquery._http.Connection)
+diff --git a/tests/unit/job/test_base.py b/tests/unit/job/test_base.py
+index e320c72..28b8729 100644
+--- a/tests/unit/job/test_base.py
++++ b/tests/unit/job/test_base.py
+@@ -18,7 +18,7 @@ import unittest
+ 
+ from google.api_core import exceptions
+ import google.api_core.retry
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from ..helpers import make_connection
+diff --git a/tests/unit/job/test_copy.py b/tests/unit/job/test_copy.py
+index d94e5bc..4ebfb94 100644
+--- a/tests/unit/job/test_copy.py
++++ b/tests/unit/job/test_copy.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ 
+ from ..helpers import make_connection
+ 
+diff --git a/tests/unit/job/test_extract.py b/tests/unit/job/test_extract.py
+index 8bada51..76ee72f 100644
+--- a/tests/unit/job/test_extract.py
++++ b/tests/unit/job/test_extract.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ 
+ from ..helpers import make_connection
+ 
+diff --git a/tests/unit/job/test_load.py b/tests/unit/job/test_load.py
+index cf2096b..05ee1a9 100644
+--- a/tests/unit/job/test_load.py
++++ b/tests/unit/job/test_load.py
+@@ -14,7 +14,7 @@
+ 
+ import copy
+ 
+-import mock
++from unittest import mock
+ 
+ from ..helpers import make_connection
+ 
+diff --git a/tests/unit/job/test_query.py b/tests/unit/job/test_query.py
+index 4c598d7..1d686ad 100644
+--- a/tests/unit/job/test_query.py
++++ b/tests/unit/job/test_query.py
+@@ -21,7 +21,7 @@ import types
+ import freezegun
+ from google.api_core import exceptions
+ import google.api_core.retry
+-import mock
++from unittest import mock
+ import requests
+ 
+ from google.cloud.bigquery.client import _LIST_ROWS_FROM_QUERY_RESULTS_FIELDS
+diff --git a/tests/unit/job/test_query_pandas.py b/tests/unit/job/test_query_pandas.py
+index 1b44f65..f7eabaf 100644
+--- a/tests/unit/job/test_query_pandas.py
++++ b/tests/unit/job/test_query_pandas.py
+@@ -16,7 +16,7 @@ import concurrent.futures
+ import copy
+ import json
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ try:
+diff --git a/tests/unit/test__helpers.py b/tests/unit/test__helpers.py
+index 94e63fd..49cf324 100644
+--- a/tests/unit/test__helpers.py
++++ b/tests/unit/test__helpers.py
+@@ -17,7 +17,7 @@ import datetime
+ import decimal
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ try:
+     from google.cloud import bigquery_storage
+diff --git a/tests/unit/test__http.py b/tests/unit/test__http.py
+index 09f6d29..8d1a74a 100644
+--- a/tests/unit/test__http.py
++++ b/tests/unit/test__http.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import requests
+ 
+ 
+diff --git a/tests/unit/test__pandas_helpers.py b/tests/unit/test__pandas_helpers.py
+index ef8c80c..7668470 100644
+--- a/tests/unit/test__pandas_helpers.py
++++ b/tests/unit/test__pandas_helpers.py
+@@ -21,7 +21,7 @@ import queue
+ import warnings
+ import pkg_resources
+ 
+-import mock
++from unittest import mock
+ 
+ try:
+     import pandas
+diff --git a/tests/unit/test_client.py b/tests/unit/test_client.py
+index eb70470..567fed9 100644
+--- a/tests/unit/test_client.py
++++ b/tests/unit/test_client.py
+@@ -26,7 +26,7 @@ import operator
+ import unittest
+ import warnings
+ 
+-import mock
++from unittest import mock
+ import packaging
+ import requests
+ import pytest
+diff --git a/tests/unit/test_create_dataset.py b/tests/unit/test_create_dataset.py
+index 67b2122..932f681 100644
+--- a/tests/unit/test_create_dataset.py
++++ b/tests/unit/test_create_dataset.py
+@@ -16,7 +16,7 @@ from google.cloud.bigquery.dataset import Dataset, DatasetReference
+ from .helpers import make_connection, dataset_polymorphic, make_client
+ import google.cloud.bigquery.dataset
+ from google.cloud.bigquery.retry import DEFAULT_TIMEOUT
+-import mock
++from unittest import mock
+ import pytest
+ 
+ 
+diff --git a/tests/unit/test_dataset.py b/tests/unit/test_dataset.py
+index b3a53a0..f688d0d 100644
+--- a/tests/unit/test_dataset.py
++++ b/tests/unit/test_dataset.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ 
+diff --git a/tests/unit/test_dbapi_connection.py b/tests/unit/test_dbapi_connection.py
+index 0576cad..4685542 100644
+--- a/tests/unit/test_dbapi_connection.py
++++ b/tests/unit/test_dbapi_connection.py
+@@ -15,7 +15,7 @@
+ import gc
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ try:
+     from google.cloud import bigquery_storage
+diff --git a/tests/unit/test_dbapi_cursor.py b/tests/unit/test_dbapi_cursor.py
+index cb55da8..c7688dc 100644
+--- a/tests/unit/test_dbapi_cursor.py
++++ b/tests/unit/test_dbapi_cursor.py
+@@ -12,7 +12,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import operator as op
+ import unittest
+ 
+diff --git a/tests/unit/test_encryption_configuration.py b/tests/unit/test_encryption_configuration.py
+index f432a90..cdd944a 100644
+--- a/tests/unit/test_encryption_configuration.py
++++ b/tests/unit/test_encryption_configuration.py
+@@ -13,7 +13,7 @@
+ # limitations under the License.
+ 
+ import unittest
+-import mock
++from unittest import mock
+ 
+ 
+ class TestEncryptionConfiguration(unittest.TestCase):
+diff --git a/tests/unit/test_job_retry.py b/tests/unit/test_job_retry.py
+index b2095d2..9739c1e 100644
+--- a/tests/unit/test_job_retry.py
++++ b/tests/unit/test_job_retry.py
+@@ -15,7 +15,7 @@
+ import datetime
+ import re
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ import google.api_core.exceptions
+diff --git a/tests/unit/test_list_datasets.py b/tests/unit/test_list_datasets.py
+index 6f0b55c..1fdc914 100644
+--- a/tests/unit/test_list_datasets.py
++++ b/tests/unit/test_list_datasets.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from google.cloud.bigquery.retry import DEFAULT_TIMEOUT
+diff --git a/tests/unit/test_list_jobs.py b/tests/unit/test_list_jobs.py
+index 1fb40d4..daa51b8 100644
+--- a/tests/unit/test_list_jobs.py
++++ b/tests/unit/test_list_jobs.py
+@@ -14,7 +14,7 @@
+ 
+ import datetime
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from google.cloud.bigquery.retry import DEFAULT_TIMEOUT
+diff --git a/tests/unit/test_list_projects.py b/tests/unit/test_list_projects.py
+index 190612b..818450c 100644
+--- a/tests/unit/test_list_projects.py
++++ b/tests/unit/test_list_projects.py
+@@ -12,7 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ from google.cloud.bigquery.retry import DEFAULT_TIMEOUT
+diff --git a/tests/unit/test_magics.py b/tests/unit/test_magics.py
+index 36cbf49..b8d80d8 100644
+--- a/tests/unit/test_magics.py
++++ b/tests/unit/test_magics.py
+@@ -17,7 +17,7 @@ import re
+ from concurrent import futures
+ import warnings
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ try:
+diff --git a/tests/unit/test_opentelemetry_tracing.py b/tests/unit/test_opentelemetry_tracing.py
+index 726e3cf..9b8c4d8 100644
+--- a/tests/unit/test_opentelemetry_tracing.py
++++ b/tests/unit/test_opentelemetry_tracing.py
+@@ -16,7 +16,7 @@ import datetime
+ import importlib
+ import sys
+ 
+-import mock
++from unittest import mock
+ 
+ try:
+     import opentelemetry
+diff --git a/tests/unit/test_query.py b/tests/unit/test_query.py
+index 69a6772..0d91e93 100644
+--- a/tests/unit/test_query.py
++++ b/tests/unit/test_query.py
+@@ -16,7 +16,7 @@ import datetime
+ import decimal
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ 
+ class Test_UDFResource(unittest.TestCase):
+diff --git a/tests/unit/test_retry.py b/tests/unit/test_retry.py
+index e0a992f..f291e89 100644
+--- a/tests/unit/test_retry.py
++++ b/tests/unit/test_retry.py
+@@ -14,7 +14,7 @@
+ 
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import requests.exceptions
+ 
+ 
+diff --git a/tests/unit/test_schema.py b/tests/unit/test_schema.py
+index 2180e1f..41d1838 100644
+--- a/tests/unit/test_schema.py
++++ b/tests/unit/test_schema.py
+@@ -15,7 +15,7 @@
+ from google.cloud.bigquery.schema import PolicyTagList
+ import unittest
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ 
+diff --git a/tests/unit/test_table.py b/tests/unit/test_table.py
+index 3c68e3c..4238eaf 100644
+--- a/tests/unit/test_table.py
++++ b/tests/unit/test_table.py
+@@ -20,7 +20,7 @@ import types
+ import unittest
+ import warnings
+ 
+-import mock
++from unittest import mock
+ import pytest
+ 
+ import google.api_core.exceptions
+-- 
+2.31.1
+

@@ -1,11 +1,11 @@
-# 🔥 Requires bigquery
+# 🔥 Requires tensorflow, which requires a complicated build w/Bazel.
 
 # tests are enabled by default
 %bcond_without tests
 
 %global         srcname     google-cloud-aiplatform
 %global         forgeurl    https://github.com/googleapis/python-aiplatform
-Version:        1.3.0
+Version:        1.5.0
 %global         tag         v%{version}
 %forgemeta
 
@@ -16,13 +16,14 @@ Summary:        Python SDK for Vertex AI on Google Cloud
 License:        ASL 2.0
 URL:            %forgeurl
 Source0:        %forgesource
+Patch0:         python-google-cloud-aiplatform-mock.patch
 
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 %if %{with tests}
+BuildRequires:  python3dist(grpcio-testing)
 BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(pytest-asyncio)
 %endif
@@ -41,8 +42,6 @@ Summary:        %{summary}
 
 
 %package -n python3-%{srcname}-doc
-Requires:       python3-docs
-BuildRequires:  python3-docs
 BuildRequires:  python3dist(recommonmark)
 BuildRequires:  python3dist(sphinx)
 BuildRequires:  python3dist(sphinx-rtd-theme)
@@ -53,12 +52,7 @@ Documentation for python-%{srcname}
 
 
 %prep
-%forgesetup
-
-# Use local inventory in intersphinx mapping.
-sed -r -i -e \
-    's|https://docs.python.org/3|/%{_docdir}/python3-docs/html|' \
-    docs/conf.py
+%forgeautosetup -p1
 
 
 %generate_buildrequires
@@ -69,8 +63,8 @@ sed -r -i -e \
 %pyproject_wheel
 
 # Generate documentation.
-PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html
-rm -rf html/.{doctrees,buildinfo} html/objects.inv
+PYTHONPATH="${PWD}:${PWD}/docs/" sphinx-build docs html %{?_smp_mflags}
+rm -rf html/.{doctrees,buildinfo}
 
 
 %install
@@ -80,7 +74,7 @@ rm -rf html/.{doctrees,buildinfo} html/objects.inv
 
 %if %{with tests}
 %check
-%pytest
+%pytest --disable-warnings tests/unit
 %endif
 
 
@@ -95,5 +89,5 @@ rm -rf html/.{doctrees,buildinfo} html/objects.inv
 
 
 %changelog
-* Thu Jul 15 2021 Major Hayden <major@mhtx.net> - 1.3.0-1
+* Mon Oct 11 2021 Major Hayden <major@mhtx.net> - 1.5.0-1
 - First package.
