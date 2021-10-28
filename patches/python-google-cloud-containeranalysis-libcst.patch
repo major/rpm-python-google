@@ -1,0 +1,23 @@
+From 2442ad7b54f29ece9d4a1a20ee40008ae92b35eb Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@redhat.com>
+Date: Thu, 28 Oct 2021 06:39:09 -0500
+Subject: [PATCH] setup.py: Fix extra_require typo
+
+This allows someone to install the module with the `[libcst]` extra.
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 62eb247..e516d7b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -82,7 +82,7 @@
+     packages=packages,
+     namespace_packages=namespaces,
+     install_requires=dependencies,
+-    extras_requires=extras,
++    extras_require=extras,
+     python_requires=">=3.6",
+     scripts=["scripts/fixup_containeranalysis_v1_keywords.py"],
+     include_package_data=True,

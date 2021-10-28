@@ -1,0 +1,26 @@
+From a68599f9eb15bc7d057c5af35921324f1a09ade5 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 09:54:13 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ .../gapic/bigquery_connection_v1/test_connection_service.py     | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/bigquery_connection_v1/test_connection_service.py b/tests/unit/gapic/bigquery_connection_v1/test_connection_service.py
+index a2b8965..0ccdc83 100644
+--- a/tests/unit/gapic/bigquery_connection_v1/test_connection_service.py
++++ b/tests/unit/gapic/bigquery_connection_v1/test_connection_service.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

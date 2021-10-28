@@ -1,0 +1,67 @@
+From d0ff3ad92e53c62d6f14a9086876e4a46e404bf2 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 10:02:52 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/bigquery_storage_v1/test_big_query_read.py     | 2 +-
+ tests/unit/gapic/bigquery_storage_v1/test_big_query_write.py    | 2 +-
+ .../unit/gapic/bigquery_storage_v1beta2/test_big_query_read.py  | 2 +-
+ .../unit/gapic/bigquery_storage_v1beta2/test_big_query_write.py | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/tests/unit/gapic/bigquery_storage_v1/test_big_query_read.py b/tests/unit/gapic/bigquery_storage_v1/test_big_query_read.py
+index 23480a7..1cbd162 100644
+--- a/tests/unit/gapic/bigquery_storage_v1/test_big_query_read.py
++++ b/tests/unit/gapic/bigquery_storage_v1/test_big_query_read.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/bigquery_storage_v1/test_big_query_write.py b/tests/unit/gapic/bigquery_storage_v1/test_big_query_write.py
+index a6b1f1f..3d35e16 100644
+--- a/tests/unit/gapic/bigquery_storage_v1/test_big_query_write.py
++++ b/tests/unit/gapic/bigquery_storage_v1/test_big_query_write.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_read.py b/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_read.py
+index c519ab6..abf3e93 100644
+--- a/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_read.py
++++ b/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_read.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_write.py b/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_write.py
+index df48cf4..51729b9 100644
+--- a/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_write.py
++++ b/tests/unit/gapic/bigquery_storage_v1beta2/test_big_query_write.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

@@ -1,0 +1,53 @@
+From be92e2d5e7edb0e2bcf46a57d4a6c8af51cb5872 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 13:46:56 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/metastore_v1/test_dataproc_metastore.py      | 2 +-
+ tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py | 2 +-
+ tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
+index ba5e0e4..ee64adc 100644
+--- a/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
++++ b/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
+index 6e39c27..1c8ad56 100644
+--- a/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
++++ b/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+diff --git a/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
+index 8067fe1..6c21e52 100644
+--- a/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
++++ b/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

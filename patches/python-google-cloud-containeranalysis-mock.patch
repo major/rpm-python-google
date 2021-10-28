@@ -1,0 +1,25 @@
+From f466ccf829a218e09841c66974517d753bbedb92 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 10:12:50 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ .../unit/gapic/containeranalysis_v1/test_container_analysis.py  | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/containeranalysis_v1/test_container_analysis.py b/tests/unit/gapic/containeranalysis_v1/test_container_analysis.py
+index ce66448..946d572 100644
+--- a/tests/unit/gapic/containeranalysis_v1/test_container_analysis.py
++++ b/tests/unit/gapic/containeranalysis_v1/test_container_analysis.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

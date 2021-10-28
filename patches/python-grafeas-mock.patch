@@ -1,0 +1,25 @@
+From 430056ba6ac364aad3ab07787220d89880546f32 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 10:18:40 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/grafeas_v1/test_grafeas.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/grafeas_v1/test_grafeas.py b/tests/unit/gapic/grafeas_v1/test_grafeas.py
+index 0426d90..abb4645 100644
+--- a/tests/unit/gapic/grafeas_v1/test_grafeas.py
++++ b/tests/unit/gapic/grafeas_v1/test_grafeas.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+

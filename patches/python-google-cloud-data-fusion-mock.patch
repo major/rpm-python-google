@@ -1,0 +1,26 @@
+From b3a59d43b52123508dc2a32dd18f8de4232618a1 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Mon, 11 Oct 2021 11:20:57 -0500
+Subject: [PATCH] Use unittest.mock
+
+Signed-off-by: Major Hayden <major@mhtx.net>
+---
+ tests/unit/gapic/data_fusion_v1/test_data_fusion.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/data_fusion_v1/test_data_fusion.py b/tests/unit/gapic/data_fusion_v1/test_data_fusion.py
+index d2691b0..258982f 100644
+--- a/tests/unit/gapic/data_fusion_v1/test_data_fusion.py
++++ b/tests/unit/gapic/data_fusion_v1/test_data_fusion.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ import packaging.version
+ 
+ import grpc
+-- 
+2.31.1
+
