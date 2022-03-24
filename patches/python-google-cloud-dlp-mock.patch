@@ -1,15 +1,14 @@
-From f058cd7ec8d183478ff2146e1db99f7d8e333899 Mon Sep 17 00:00:00 2001
+From 0875ecd687fca5cff90675657f3af6e8f01e96ab Mon Sep 17 00:00:00 2001
 From: Major Hayden <major@mhtx.net>
-Date: Mon, 11 Oct 2021 11:24:59 -0500
+Date: Mon, 13 Dec 2021 13:39:32 -0600
 Subject: [PATCH] Use unittest.mock
 
-Signed-off-by: Major Hayden <major@mhtx.net>
 ---
  tests/unit/gapic/dlp_v2/test_dlp_service.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tests/unit/gapic/dlp_v2/test_dlp_service.py b/tests/unit/gapic/dlp_v2/test_dlp_service.py
-index c3508de..d32974d 100644
+index f7b16eb..30497d2 100644
 --- a/tests/unit/gapic/dlp_v2/test_dlp_service.py
 +++ b/tests/unit/gapic/dlp_v2/test_dlp_service.py
 @@ -14,7 +14,7 @@
@@ -18,9 +17,9 @@ index c3508de..d32974d 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 -- 
-2.31.1
+2.33.1
 

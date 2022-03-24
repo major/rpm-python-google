@@ -1,0 +1,36 @@
+From 8555b3ceb75432f9f218943811ec663d307807e6 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 20 Jan 2022 14:09:58 -0600
+Subject: [PATCH] Allow newer python3-rsa
+
+---
+ requirements.txt | 2 +-
+ setup.py         | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/requirements.txt b/requirements.txt
+index 65cb070..119bb29 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,4 +1,4 @@
+-rsa==4.7.2
++rsa>=4.7.2
+ boto>=2.29.1
+ google-reauth>=0.1.0
+ httplib2>=0.18
+diff --git a/setup.py b/setup.py
+index 5522f73..405511c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -29,7 +29,7 @@ for the machine in a thread- and process-safe fashion.
+ """
+ 
+ requires = [
+-    'rsa==4.7.2',
++    'rsa>=4.7.2',
+     'boto>=2.29.1',
+     'google-reauth>=0.1.0',
+     'httplib2>=0.18',
+-- 
+2.34.1
+

@@ -1,15 +1,15 @@
 # tests are enabled by default
 %bcond_without tests
 
-%global         srcname     google-cloud-data-fusion
-%global         forgeurl    https://github.com/googleapis/python-data-fusion
-Version:        1.2.0
+%global         srcname     google-cloud-dlp
+%global         forgeurl    https://github.com/googleapis/python-dlp
+Version:        3.6.1
 %global         tag         v%{version}
 %forgemeta
 
 Name:           python-%{srcname}
-Release:        1%{?dist}
-Summary:        Python SDK for Google Cloud Data Fusion API
+Release:        %autorelease
+Summary:        Python SDK for Google Cloud Data Loss Prevention API
 
 License:        ASL 2.0
 URL:            %forgeurl
@@ -20,23 +20,21 @@ Source0:        %forgesource
 # This simple patch cannot be submitted upstream because they support
 # Python 3.6 and 3.7, but use AsyncMock, which was introduced to
 # unittest.mock in Python 3.8.
-Patch0:         python-google-cloud-data-fusion-mock.patch
+Patch0:         python-google-cloud-dlp-mock.patch
 
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
 
 %if %{with tests}
-BuildRequires:  python3dist(fastavro)
-BuildRequires:  python3dist(freezegun)
-BuildRequires:  python3dist(pandas)
 BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:
-Cloud Data Fusion: helps users build scalable, distributed data lakes on
-Google Cloud by integrating data from siloed on-premises platforms.}
+Cloud Data Loss Prevention (DLP) API: Provides methods for detection, risk
+analysis, and de-identification of privacy-sensitive fragments in text, images,
+and Google Cloud Platform storage repositories.}
 
 %description %{_description}
 
@@ -45,6 +43,9 @@ Google Cloud by integrating data from siloed on-premises platforms.}
 Summary:        %{summary}
 
 %description -n python3-%{srcname} %{_description}
+
+# Build the libcst extras subpackage.
+%pyproject_extras_subpkg -n python3-%{srcname} libcst
 
 
 %prep
@@ -63,6 +64,9 @@ Summary:        %{summary}
 %pyproject_install
 %pyproject_save_files google
 
+# Remove unnecessary scripts.
+rm -f %{buildroot}%{_bindir}/fixup*
+
 
 %if %{with tests}
 %check
@@ -71,10 +75,10 @@ Summary:        %{summary}
 
 
 %files -n python3-%{srcname} -f %{pyproject_files}
-%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md
-%{python3_sitelib}/google_cloud_data_fusion-%{version}-py%{python3_version}-nspkg.pth
+%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md UPGRADING.md samples
+%{python3_sitelib}/google_cloud_dlp-%{version}-py%{python3_version}-nspkg.pth
+
 
 
 %changelog
-* Mon Oct 11 2021 Major Hayden <major@mhtx.net> - 1.2.0-1
-- First package.
+%autochangelog

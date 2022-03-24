@@ -1,0 +1,109 @@
+From f417434a3ba9cd891a547e31de1417a9d22a0d4c Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 20 Jan 2022 13:10:10 -0600
+Subject: [PATCH] Use unittest.mock
+
+---
+ pyu2f/tests/customauthenticator_test.py | 2 +-
+ pyu2f/tests/hardware_test.py            | 2 +-
+ pyu2f/tests/hid/linux_test.py           | 2 +-
+ pyu2f/tests/hid/macos_test.py           | 2 +-
+ pyu2f/tests/hidtransport_test.py        | 2 +-
+ pyu2f/tests/localauthenticator_test.py  | 2 +-
+ pyu2f/tests/u2f_test.py                 | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/pyu2f/tests/customauthenticator_test.py b/pyu2f/tests/customauthenticator_test.py
+index 9232162..1151771 100644
+--- a/pyu2f/tests/customauthenticator_test.py
++++ b/pyu2f/tests/customauthenticator_test.py
+@@ -19,7 +19,7 @@ import json
+ import struct
+ import sys
+ 
+-import mock
++from unittest import mock
+ from pyu2f import errors
+ from pyu2f import model
+ from pyu2f.convenience import customauthenticator
+diff --git a/pyu2f/tests/hardware_test.py b/pyu2f/tests/hardware_test.py
+index ea7aeb0..edc47f5 100644
+--- a/pyu2f/tests/hardware_test.py
++++ b/pyu2f/tests/hardware_test.py
+@@ -16,7 +16,7 @@
+ 
+ import sys
+ 
+-import mock
++from unittest import mock
+ 
+ from pyu2f import errors
+ from pyu2f import hardware
+diff --git a/pyu2f/tests/hid/linux_test.py b/pyu2f/tests/hid/linux_test.py
+index 803c574..f57ddea 100644
+--- a/pyu2f/tests/hid/linux_test.py
++++ b/pyu2f/tests/hid/linux_test.py
+@@ -18,7 +18,7 @@ import base64
+ import os
+ import sys
+ 
+-import mock
++from unittest import mock
+ 
+ from pyu2f.hid import linux
+ 
+diff --git a/pyu2f/tests/hid/macos_test.py b/pyu2f/tests/hid/macos_test.py
+index b035a12..9849849 100644
+--- a/pyu2f/tests/hid/macos_test.py
++++ b/pyu2f/tests/hid/macos_test.py
+@@ -16,7 +16,7 @@
+ 
+ import ctypes
+ import sys
+-import mock
++from unittest import mock
+ 
+ from pyu2f import errors
+ from pyu2f.hid import macos
+diff --git a/pyu2f/tests/hidtransport_test.py b/pyu2f/tests/hidtransport_test.py
+index 3af6b4b..c5ed6f6 100644
+--- a/pyu2f/tests/hidtransport_test.py
++++ b/pyu2f/tests/hidtransport_test.py
+@@ -17,7 +17,7 @@
+ from six.moves import range
+ import sys
+ 
+-import mock
++from unittest import mock
+ 
+ from pyu2f import errors
+ from pyu2f import hidtransport
+diff --git a/pyu2f/tests/localauthenticator_test.py b/pyu2f/tests/localauthenticator_test.py
+index b4aeba7..ba8fc10 100644
+--- a/pyu2f/tests/localauthenticator_test.py
++++ b/pyu2f/tests/localauthenticator_test.py
+@@ -17,7 +17,7 @@
+ import base64
+ import sys
+ 
+-import mock
++from unittest import mock
+ from pyu2f import errors
+ from pyu2f import model
+ from pyu2f.convenience import localauthenticator
+diff --git a/pyu2f/tests/u2f_test.py b/pyu2f/tests/u2f_test.py
+index b99d1fa..a8212dc 100644
+--- a/pyu2f/tests/u2f_test.py
++++ b/pyu2f/tests/u2f_test.py
+@@ -16,7 +16,7 @@
+ 
+ import sys
+ 
+-import mock
++from unittest import mock
+ 
+ from pyu2f import errors
+ from pyu2f import model
+-- 
+2.34.1
+

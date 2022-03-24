@@ -1,15 +1,15 @@
 # tests are enabled by default
 %bcond_without tests
 
-%global         srcname     google-cloud-dlp
-%global         forgeurl    https://github.com/googleapis/python-dlp
-Version:        3.2.4
+%global         srcname     google-cloud-datastore
+%global         forgeurl    https://github.com/googleapis/python-datastore
+Version:        2.4.0
 %global         tag         v%{version}
 %forgemeta
 
 Name:           python-%{srcname}
-Release:        1%{?dist}
-Summary:        Python SDK for Google Cloud Data Loss Prevention API
+Release:        %autorelease
+Summary:        Python SDK for Google Cloud Datastore
 
 License:        ASL 2.0
 URL:            %forgeurl
@@ -20,7 +20,7 @@ Source0:        %forgesource
 # This simple patch cannot be submitted upstream because they support
 # Python 3.6 and 3.7, but use AsyncMock, which was introduced to
 # unittest.mock in Python 3.8.
-Patch0:         python-google-cloud-dlp-mock.patch
+# Patch0:         python-google-cloud-dms-mock.patch
 
 BuildArch:      noarch
 
@@ -35,9 +35,7 @@ BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:
-Cloud Data Loss Prevention (DLP) API: Provides methods for detection, risk
-analysis, and de-identification of privacy-sensitive fragments in text, images,
-and Google Cloud Platform storage repositories.}
+Python SDK for Google Cloud Datastore.}
 
 %description %{_description}
 
@@ -65,7 +63,7 @@ Summary:        %{summary}
 %pyproject_save_files google
 
 # Remove unnecessary scripts.
-rm -f %{buildroot}%{_bindir}/fixup*
+# rm -f %{buildroot}%{_bindir}/fixup*
 
 
 %if %{with tests}
@@ -75,11 +73,9 @@ rm -f %{buildroot}%{_bindir}/fixup*
 
 
 %files -n python3-%{srcname} -f %{pyproject_files}
-%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md UPGRADING.md samples
-%{python3_sitelib}/google_cloud_dlp-%{version}-py%{python3_version}-nspkg.pth
-
+%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md
+%{python3_sitelib}/google_cloud_dms-%{version}-py%{python3_version}-nspkg.pth
 
 
 %changelog
-* Mon Oct 11 2021 Major Hayden <major@mhtx.net> - 3.2.4-1
-- First package.
+%autochangelog

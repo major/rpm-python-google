@@ -1,15 +1,15 @@
 # tests are enabled by default
 %bcond_without tests
 
-%global         srcname     google-cloud-dataproc
-%global         forgeurl    https://github.com/googleapis/python-dataproc
-Version:        3.0.0
+%global         srcname     google-cloud-dataproc-metastore
+%global         forgeurl    https://github.com/googleapis/python-dataproc-metastore
+Version:        1.4.0
 %global         tag         v%{version}
 %forgemeta
 
 Name:           python-%{srcname}
-Release:        1%{?dist}
-Summary:        Python SDK for Google Cloud Dataproc API
+Release:        %autorelease
+Summary:        Python SDK for Google Cloud Dataproc Metastore
 
 License:        ASL 2.0
 URL:            %forgeurl
@@ -20,7 +20,7 @@ Source0:        %forgesource
 # This simple patch cannot be submitted upstream because they support
 # Python 3.6 and 3.7, but use AsyncMock, which was introduced to
 # unittest.mock in Python 3.8.
-Patch0:         python-google-cloud-dataproc-mock.patch
+Patch0:         python-google-cloud-dataproc-metastore-mock.patch
 
 BuildArch:      noarch
 
@@ -32,8 +32,10 @@ BuildRequires:  python3dist(pytest-asyncio)
 %endif
 
 %global _description %{expand:
-Google Cloud Dataproc API: Manages Hadoop-based clusters and jobs on Google
-Cloud Platform.}
+Dataproc Metastore is a fully managed, highly available, autoscaled,
+autohealing, OSS-native metastore service that greatly simplifies technical
+metadata management. Dataproc Metastore service is based on Apache Hive
+metastore and serves as a critical component towards enterprise data lakes.}
 
 %description %{_description}
 
@@ -71,10 +73,9 @@ rm -f %{buildroot}%{_bindir}/fixup*
 
 
 %files -n python3-%{srcname} -f %{pyproject_files}
-%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md UPGRADING.md samples
-%{python3_sitelib}/google_cloud_dataproc-%{version}-py%{python3_version}-nspkg.pth
+%doc README.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.rst SECURITY.md
+%{python3_sitelib}/google_cloud_dataproc_metastore-%{version}-py%{python3_version}-nspkg.pth
 
 
 %changelog
-* Mon Oct 11 2021 Major Hayden <major@mhtx.net> - 3.0.0-1
-- First package.
+%autochangelog

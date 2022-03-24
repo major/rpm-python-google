@@ -1,17 +1,18 @@
-From 6ec7f4e6440dda9aa8cad752d83ea1337a549c01 Mon Sep 17 00:00:00 2001
+From f6d37a48e19c79e658a14967b1df04d5466a35be Mon Sep 17 00:00:00 2001
 From: Major Hayden <major@mhtx.net>
-Date: Mon, 11 Oct 2021 13:36:21 -0500
+Date: Mon, 13 Dec 2021 13:34:12 -0600
 Subject: [PATCH] Use unittest.mock
 
 ---
  tests/unit/gapic/dataproc_v1/test_autoscaling_policy_service.py | 2 +-
+ tests/unit/gapic/dataproc_v1/test_batch_controller.py           | 2 +-
  tests/unit/gapic/dataproc_v1/test_cluster_controller.py         | 2 +-
  tests/unit/gapic/dataproc_v1/test_job_controller.py             | 2 +-
  tests/unit/gapic/dataproc_v1/test_workflow_template_service.py  | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/tests/unit/gapic/dataproc_v1/test_autoscaling_policy_service.py b/tests/unit/gapic/dataproc_v1/test_autoscaling_policy_service.py
-index 880f0c4..a1fc771 100644
+index 1ee09b4..98f8c92 100644
 --- a/tests/unit/gapic/dataproc_v1/test_autoscaling_policy_service.py
 +++ b/tests/unit/gapic/dataproc_v1/test_autoscaling_policy_service.py
 @@ -14,7 +14,7 @@
@@ -20,11 +21,24 @@ index 880f0c4..a1fc771 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
+diff --git a/tests/unit/gapic/dataproc_v1/test_batch_controller.py b/tests/unit/gapic/dataproc_v1/test_batch_controller.py
+index b0053cb..5e76a89 100644
+--- a/tests/unit/gapic/dataproc_v1/test_batch_controller.py
++++ b/tests/unit/gapic/dataproc_v1/test_batch_controller.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ 
+ import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/dataproc_v1/test_cluster_controller.py b/tests/unit/gapic/dataproc_v1/test_cluster_controller.py
-index 5fae118..9c24cf4 100644
+index 12b1ccc..31bac85 100644
 --- a/tests/unit/gapic/dataproc_v1/test_cluster_controller.py
 +++ b/tests/unit/gapic/dataproc_v1/test_cluster_controller.py
 @@ -14,7 +14,7 @@
@@ -33,11 +47,11 @@ index 5fae118..9c24cf4 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/dataproc_v1/test_job_controller.py b/tests/unit/gapic/dataproc_v1/test_job_controller.py
-index 05fcd58..8ed1892 100644
+index 7202d50..14f8470 100644
 --- a/tests/unit/gapic/dataproc_v1/test_job_controller.py
 +++ b/tests/unit/gapic/dataproc_v1/test_job_controller.py
 @@ -14,7 +14,7 @@
@@ -46,11 +60,11 @@ index 05fcd58..8ed1892 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/dataproc_v1/test_workflow_template_service.py b/tests/unit/gapic/dataproc_v1/test_workflow_template_service.py
-index 3e220b7..457a008 100644
+index c5355e4..51de105 100644
 --- a/tests/unit/gapic/dataproc_v1/test_workflow_template_service.py
 +++ b/tests/unit/gapic/dataproc_v1/test_workflow_template_service.py
 @@ -14,7 +14,7 @@
@@ -59,9 +73,9 @@ index 3e220b7..457a008 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 -- 
-2.31.1
+2.33.1
 

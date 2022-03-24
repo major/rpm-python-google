@@ -1,6 +1,6 @@
-From be92e2d5e7edb0e2bcf46a57d4a6c8af51cb5872 Mon Sep 17 00:00:00 2001
+From 6478823fd19f62d92a5c5e07ff801229268c1f8f Mon Sep 17 00:00:00 2001
 From: Major Hayden <major@mhtx.net>
-Date: Mon, 11 Oct 2021 13:46:56 -0500
+Date: Wed, 8 Dec 2021 15:34:58 -0600
 Subject: [PATCH] Use unittest.mock
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH] Use unittest.mock
  3 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
-index ba5e0e4..ee64adc 100644
+index 3bb7b3c..ec2bf32 100644
 --- a/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
 +++ b/tests/unit/gapic/metastore_v1/test_dataproc_metastore.py
 @@ -14,7 +14,7 @@
@@ -19,11 +19,11 @@ index ba5e0e4..ee64adc 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
-index 6e39c27..1c8ad56 100644
+index ddd269c..27fc281 100644
 --- a/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
 +++ b/tests/unit/gapic/metastore_v1alpha/test_dataproc_metastore.py
 @@ -14,7 +14,7 @@
@@ -32,11 +32,11 @@ index 6e39c27..1c8ad56 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py b/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
-index 8067fe1..6c21e52 100644
+index e359d21..c330d1f 100644
 --- a/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
 +++ b/tests/unit/gapic/metastore_v1beta/test_dataproc_metastore.py
 @@ -14,7 +14,7 @@
@@ -45,9 +45,9 @@ index 8067fe1..6c21e52 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 -- 
-2.31.1
+2.33.1
 

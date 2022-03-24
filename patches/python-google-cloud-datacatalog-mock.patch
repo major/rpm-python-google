@@ -1,9 +1,8 @@
-From 5d9dab5be62bd1486c42d042965298e6b62cdc4a Mon Sep 17 00:00:00 2001
+From 95f077997f13c04e3c238648084690d1656f4a76 Mon Sep 17 00:00:00 2001
 From: Major Hayden <major@mhtx.net>
-Date: Mon, 11 Oct 2021 11:10:04 -0500
+Date: Wed, 8 Dec 2021 14:59:57 -0600
 Subject: [PATCH] Use unittest.mock
 
-Signed-off-by: Major Hayden <major@mhtx.net>
 ---
  tests/unit/gapic/datacatalog_v1/test_data_catalog.py            | 2 +-
  tests/unit/gapic/datacatalog_v1/test_policy_tag_manager.py      | 2 +-
@@ -14,7 +13,7 @@ Signed-off-by: Major Hayden <major@mhtx.net>
  6 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/tests/unit/gapic/datacatalog_v1/test_data_catalog.py b/tests/unit/gapic/datacatalog_v1/test_data_catalog.py
-index e5c90f2..ae7ebfa 100644
+index 88f2150..2a689b4 100644
 --- a/tests/unit/gapic/datacatalog_v1/test_data_catalog.py
 +++ b/tests/unit/gapic/datacatalog_v1/test_data_catalog.py
 @@ -14,7 +14,7 @@
@@ -23,11 +22,11 @@ index e5c90f2..ae7ebfa 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager.py b/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager.py
-index 907a4d7..aadf4ea 100644
+index eb01909..1d29ed6 100644
 --- a/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager.py
 +++ b/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager.py
 @@ -14,7 +14,7 @@
@@ -36,11 +35,11 @@ index 907a4d7..aadf4ea 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager_serialization.py b/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager_serialization.py
-index 394b63a..9d24a84 100644
+index cbb99d3..cd1349d 100644
 --- a/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager_serialization.py
 +++ b/tests/unit/gapic/datacatalog_v1/test_policy_tag_manager_serialization.py
 @@ -14,7 +14,7 @@
@@ -49,11 +48,11 @@ index 394b63a..9d24a84 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/datacatalog_v1beta1/test_data_catalog.py b/tests/unit/gapic/datacatalog_v1beta1/test_data_catalog.py
-index 90c3594..149b0d4 100644
+index 09c9033..7229325 100644
 --- a/tests/unit/gapic/datacatalog_v1beta1/test_data_catalog.py
 +++ b/tests/unit/gapic/datacatalog_v1beta1/test_data_catalog.py
 @@ -14,7 +14,7 @@
@@ -62,11 +61,11 @@ index 90c3594..149b0d4 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager.py b/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager.py
-index 2a5b612..6af25a7 100644
+index 45ac136..703cfde 100644
 --- a/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager.py
 +++ b/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager.py
 @@ -14,7 +14,7 @@
@@ -75,11 +74,11 @@ index 2a5b612..6af25a7 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 diff --git a/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager_serialization.py b/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager_serialization.py
-index 7f7b157..36b0fd5 100644
+index 4b70eeb..baf789d 100644
 --- a/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager_serialization.py
 +++ b/tests/unit/gapic/datacatalog_v1beta1/test_policy_tag_manager_serialization.py
 @@ -14,7 +14,7 @@
@@ -88,9 +87,9 @@ index 7f7b157..36b0fd5 100644
  import os
 -import mock
 +from unittest import mock
- import packaging.version
  
  import grpc
+ from grpc.experimental import aio
 -- 
-2.31.1
+2.33.1
 

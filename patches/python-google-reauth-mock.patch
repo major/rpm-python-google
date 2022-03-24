@@ -1,0 +1,55 @@
+From 2466594150fba78eaa355e64c8697011da803fcf Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 20 Jan 2022 13:28:35 -0600
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/test_challenges.py   | 2 +-
+ tests/test_reauth.py       | 2 +-
+ tests/test_reauth_creds.py | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/tests/test_challenges.py b/tests/test_challenges.py
+index 6b07b64..308fb3c 100644
+--- a/tests/test_challenges.py
++++ b/tests/test_challenges.py
+@@ -19,7 +19,7 @@ import json
+ import os
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from google_reauth import challenges, errors
+ 
+diff --git a/tests/test_reauth.py b/tests/test_reauth.py
+index c82f811..19efb69 100644
+--- a/tests/test_reauth.py
++++ b/tests/test_reauth.py
+@@ -19,7 +19,7 @@ import json
+ import os
+ import unittest
+ 
+-import mock
++from unittest import mock
+ 
+ from six.moves import http_client
+ from six.moves import urllib
+diff --git a/tests/test_reauth_creds.py b/tests/test_reauth_creds.py
+index 6cfbc23..b99fee7 100644
+--- a/tests/test_reauth_creds.py
++++ b/tests/test_reauth_creds.py
+@@ -20,8 +20,8 @@ import json
+ import os
+ import unittest
+ 
+-import mock
+-from mock import patch
++from unittest import mock
++from unittest.mock import patch
+ 
+ from six.moves import http_client
+ from six.moves import urllib
+-- 
+2.34.1
+
