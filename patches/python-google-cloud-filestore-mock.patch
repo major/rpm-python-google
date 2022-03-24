@@ -1,0 +1,25 @@
+From e438a46a3ed59a071aa2d47f1abb1211b7b60fc3 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 24 Mar 2022 10:08:21 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/filestore_v1/test_cloud_filestore_manager.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/filestore_v1/test_cloud_filestore_manager.py b/tests/unit/gapic/filestore_v1/test_cloud_filestore_manager.py
+index 344d9de..fb51361 100644
+--- a/tests/unit/gapic/filestore_v1/test_cloud_filestore_manager.py
++++ b/tests/unit/gapic/filestore_v1/test_cloud_filestore_manager.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ 
+ import grpc
+ from grpc.experimental import aio
+-- 
+2.35.1
+

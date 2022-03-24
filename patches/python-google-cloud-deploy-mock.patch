@@ -1,0 +1,25 @@
+From a5b8f310cdbbbfdb60bdb3bf14157ca6bd29dda8 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 24 Mar 2022 08:43:35 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/deploy_v1/test_cloud_deploy.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/unit/gapic/deploy_v1/test_cloud_deploy.py b/tests/unit/gapic/deploy_v1/test_cloud_deploy.py
+index 96df274..18c231f 100644
+--- a/tests/unit/gapic/deploy_v1/test_cloud_deploy.py
++++ b/tests/unit/gapic/deploy_v1/test_cloud_deploy.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ 
+ import grpc
+ from grpc.experimental import aio
+-- 
+2.35.1
+

@@ -1,0 +1,39 @@
+From c7ab885171e2c39f127c21358d91daf3c0986634 Mon Sep 17 00:00:00 2001
+From: Major Hayden <major@mhtx.net>
+Date: Thu, 24 Mar 2022 08:01:58 -0500
+Subject: [PATCH] Use unittest.mock
+
+---
+ tests/unit/gapic/debugger_v2/test_controller2.py | 2 +-
+ tests/unit/gapic/debugger_v2/test_debugger2.py   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/unit/gapic/debugger_v2/test_controller2.py b/tests/unit/gapic/debugger_v2/test_controller2.py
+index e589508..399b50f 100644
+--- a/tests/unit/gapic/debugger_v2/test_controller2.py
++++ b/tests/unit/gapic/debugger_v2/test_controller2.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ 
+ import grpc
+ from grpc.experimental import aio
+diff --git a/tests/unit/gapic/debugger_v2/test_debugger2.py b/tests/unit/gapic/debugger_v2/test_debugger2.py
+index 3f4810c..8df5e5c 100644
+--- a/tests/unit/gapic/debugger_v2/test_debugger2.py
++++ b/tests/unit/gapic/debugger_v2/test_debugger2.py
+@@ -14,7 +14,7 @@
+ # limitations under the License.
+ #
+ import os
+-import mock
++from unittest import mock
+ 
+ import grpc
+ from grpc.experimental import aio
+-- 
+2.35.1
+
